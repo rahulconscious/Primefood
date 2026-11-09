@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Primefood helps you reflect on food and lifestyle habits and explore practical ways to improve them.">
+<title>Primefood — Your Food. Your Lifestyle. Your Future.</title>
+<style>
+:root{--green:#173f32;--green2:#245d48;--lime:#d7efb5;--cream:#f7f6ef;--ink:#1d2923;--muted:#68756d;--orange:#e58a45;--line:#e4e8df;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
+button{font:inherit;cursor:pointer}.wrap{max-width:1100px;margin:auto;padding:0 24px}
+nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}.brand{font-size:1.35rem;font-weight:850;letter-spacing:-.05em;color:var(--green)}.brand span{color:var(--orange)}.nav-note{font-size:.85rem;color:var(--muted)}
+.hero{background:var(--green);color:white;border-radius:28px;padding:clamp(32px,6vw,72px);position:relative;overflow:hidden;min-height:400px;display:flex;align-items:center}
+.hero:after{content:"";position:absolute;width:360px;height:360px;border:1px solid #ffffff22;border-radius:50%;right:-60px;top:-85px;box-shadow:0 0 0 35px #ffffff08,0 0 0 75px #ffffff06}
+.hero-content{max-width:660px;position:relative;z-index:1}.eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;font-weight:800;color:var(--lime)}h1{font-size:clamp(2.5rem,6vw,4.7rem);line-height:1.02;letter-spacing:-.065em;margin:18px 0}.hero p{font-size:1.1rem;color:#dce8df;max-width:560px}.primary{border:0;background:var(--lime);color:var(--green);font-weight:800;padding:14px 22px;border-radius:999px;margin-top:18px}.primary:hover{transform:translateY(-1px);filter:brightness(.98)}
+.trust{display:flex;gap:18px;flex-wrap:wrap;margin-top:24px;color:#dce8df;font-size:.83rem}.trust span:before{content:"✓";color:var(--lime);font-weight:900;margin-right:7px}
+.section{padding:58px 0}.section-head{max-width:650px;margin-bottom:24px}.section h2{font-size:clamp(1.8rem,4vw,2.6rem);letter-spacing:-.05em;margin:8px 0}.section p{color:var(--muted)}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.feature{background:white;border:1px solid var(--line);border-radius:18px;padding:22px}.feature b{display:block;margin:10px 0 4px}.feature p{font-size:.9rem;margin:0}.icon{font-size:1.4rem}
+.quiz-shell{background:white;border:1px solid var(--line);border-radius:24px;padding:clamp(20px,4vw,38px);box-shadow:0 16px 45px #193d2b0a}.quiz-top{display:flex;justify-content:space-between;gap:12px;align-items:center;color:var(--muted);font-size:.85rem}.progress{height:7px;background:#edf1e9;border-radius:99px;margin:15px 0 28px;overflow:hidden}.bar{height:100%;background:var(--green2);width:0%;transition:width .25s}
+.question{font-size:clamp(1.3rem,3vw,1.8rem);line-height:1.25;letter-spacing:-.035em;margin:0 0 8px}.helper{color:var(--muted);margin:0 0 20px;font-size:.92rem}.options{display:grid;gap:10px}.option{width:100%;text-align:left;padding:15px 17px;border:1px solid var(--line);background:#fff;border-radius:13px;color:var(--ink);display:flex;align-items:center;justify-content:space-between;gap:12px}.option:hover{border-color:var(--green2);background:#f8fbf5}.option.selected{border:2px solid var(--green2);background:#f0f7e9;padding:14px 16px}.option .tick{width:21px;height:21px;border:1px solid #c8d1c8;border-radius:50%;flex:none}.option.selected .tick{background:var(--green2);border-color:var(--green2);box-shadow:inset 0 0 0 5px #fff}
+.quiz-actions{display:flex;justify-content:space-between;gap:12px;margin-top:24px}.secondary{background:white;border:1px solid var(--line);border-radius:999px;padding:12px 19px;color:var(--ink);font-weight:700}.next{background:var(--green);color:white;border:0;border-radius:999px;padding:12px 22px;font-weight:800}.next:disabled{opacity:.35;cursor:not-allowed}
+.result-head{background:var(--green);color:white;border-radius:20px;padding:28px}.result-head .eyebrow{color:var(--lime)}.scoreline{display:flex;align-items:end;gap:10px;margin:12px 0}.score{font-size:3.8rem;line-height:1;font-weight:850;letter-spacing:-.07em}.score small{font-size:1rem;font-weight:500;letter-spacing:0;color:#dce8df}.level{display:inline-block;border-radius:999px;padding:6px 11px;background:var(--lime);color:var(--green);font-weight:850;font-size:.8rem}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}.result-card{border:1px solid var(--line);border-radius:17px;padding:21px;background:white}.result-card h3{margin:0 0 10px;letter-spacing:-.025em}.result-card p,.result-card li{font-size:.92rem;color:var(--muted)}.result-card ul{padding-left:20px;margin:8px 0}.wide{grid-column:1/-1}.smallprint{font-size:.8rem;color:var(--muted);margin-top:18px}
+footer{border-top:1px solid var(--line);padding:28px 0 42px;color:var(--muted);font-size:.82rem}.hidden{display:none!important}
+@media(max-width:720px){.features{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr}.wide{grid-column:auto}.hero{min-height:0}.nav-note{display:none}.wrap{padding:0 16px}.section{padding:42px 0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav><div class="brand">primefood<span>.</span></div><div class="nav-note">A food & lifestyle awareness experience</div></nav>
+  <header class="hero">
+    <div class="hero-content">
+      <div class="eyebrow">Small choices. Long-term impact.</div>
+      <h1>Your food.<br>Your lifestyle.<br><span style="color:var(--lime)">Your future.</span></h1>
+      <p>Everyday habits add up. Take a short, non-diagnostic quiz to reflect on your food, movement, sleep and other lifestyle choices — and discover practical ways to make healthier changes.</p>
+      <button class="primary" onclick="document.getElementById('quiz').scrollIntoView({behavior:'smooth'})">Take the free quiz →</button>
+      <div class="trust"><span>About 3 minutes</span><span>No account needed</span><span>Private in this browser</span></div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="section-head"><div class="eyebrow" style="color:var(--green2)">How it works</div><h2>A snapshot of your everyday habits.</h2><p>Answer honestly. Your result is an educational reflection of the habits you report, not a medical assessment or prediction.</p></div>
+    <div class="features">
+      <div class="feature"><div class="icon">🥗</div><b>Look at your choices</b><p>Explore food, drinks, activity, sleep and daily routines.</p></div>
+      <div class="feature"><div class="icon">📊</div><b>Understand your pattern</b><p>See an indicative habit score and the areas that may deserve attention.</p></div>
+      <div class="feature"><div class="icon">🌱</div><b>Find a next step</b><p>Get practical ideas to discuss with a qualified health professional when needed.</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="quiz">
+    <div class="section-head"><div class="eyebrow" style="color:var(--green2)">The Primefood check-in</div><h2>What do your habits look like?</h2><p>Choose the answer that best describes a typical week. There are no “good” or “bad” people here — only habits you can work on.</p></div>
+    <div class="quiz-shell" id="quizBox">
+      <div class="quiz-top"><span id="stepLabel">Question 1 of 12</span><span id="categoryLabel">Food choices</span></div>
+      <div class="progress"><div class="bar" id="progressBar"></div></div>
+      <h3 class="question" id="questionText"></h3><p class="helper" id="questionHelp"></p>
+      <div class="options" id="options"></div>
+      <div class="quiz-actions"><button class="secondary" id="backBtn" onclick="back()" disabled>← Back</button><button class="next" id="nextBtn" onclick="next()" disabled>Next →</button></div>
+    </div>
+    <div id="results" class="hidden"></div>
+  </section>
+  <footer><b style="color:var(--green)">primefood.</b><br>Food and lifestyle awareness, made approachable.<p>This prototype provides general educational information only. It does not diagnose disease, calculate an individual's clinical risk, or replace medical advice. Your answers are processed in this page and are not sent to a server.</p></footer>
+</div>
+<script>
+const questions = [
+ {cat:"Food choices",q:"How often do you eat packaged or ultra-processed snacks (such as chips, packaged biscuits or instant snack foods)?",help:"Think about a typical week.",a:[["Rarely or never",0],["1–2 days a week",1],["3–5 days a week",2],["Almost every day",3]]},
+ {cat:"Food choices",q:"How often do you drink sugar-sweetened beverages (soft drinks, sweetened packaged juices, energy drinks or sweet tea/coffee)?",help:"Include drinks you have with meals and between meals.",a:[["Rarely or never",0],["1–2 days a week",1],["3–5 days a week",2],["Almost every day",3]]},
+ {cat:"Food choices",q:"How often do you eat deep-fried or fast foods?",help:"Examples include fries, fried snacks, burgers and fried takeaway meals.",a:[["Rarely or never",0],["About once a week",1],["2–4 times a week",2],["5 or more times a week",3]]},
+ {cat:"Food choices",q:"How often do you include vegetables or fruit in your meals?",help:"Think about a variety of vegetables and whole fruit, not only juice.",a:[["With most meals / most days",0],["About once a day",1],["A few times a week",2],["Rarely",3]]},
+ {cat:"Food choices",q:"How often do you choose whole grains or high-fibre foods (such as oats, beans, lentils, whole grains, vegetables and fruit)?",help:"Traditional foods such as dal, beans and whole grains can contribute fibre.",a:[["Most days",0],["4–5 days a week",1],["1–3 days a week",2],["Rarely",3]]},
+ {cat:"Food choices",q:"How often do you eat processed meats (such as sausages, bacon, salami or hot dogs)?",help:"This question is about processed meat, not all meat or protein foods.",a:[["Rarely or never",0],["Less than once a week",1],["1–3 times a week",2],["4 or more times a week",3]]},
+ {cat:"Movement",q:"How much moderate physical activity do you usually get in a week?",help:"Examples: brisk walking, cycling or activities that make you breathe a little harder.",a:[["150 minutes or more",0],["90–149 minutes",1],["30–89 minutes",2],["Less than 30 minutes",3]]},
+ {cat:"Movement",q:"How much of your waking day do you spend sitting?",help:"Include desk work, studying, commuting and screen time.",a:[["Less than 4 hours",0],["4–6 hours",1],["6–8 hours",2],["More than 8 hours",3]]},
+ {cat:"Sleep",q:"How much sleep do you usually get on most nights?",help:"For most adults, 7–9 hours is a useful general target; needs vary by age and individual.",a:[["7–9 hours",0],["6–7 hours",1],["5–6 hours",2],["Less than 5 hours",3]]},
+ {cat:"Sleep",q:"How would you describe your sleep routine?",help:"Consider regularity and whether you feel rested.",a:[["Usually regular and refreshing",0],["Sometimes irregular",1],["Often irregular or restless",2],["Frequently poor or disrupted",3]]},
+ {cat:"Daily habits",q:"How often do you smoke or use tobacco?",help:"If you do not use tobacco, choose the first option.",a:[["Never",0],["Former user",0],["Some days",2],["Daily",3]]},
+ {cat:"Daily habits",q:"How often do you drink alcohol?",help:"If you do not drink, choose the first option. Alcohol-related risks vary by amount and individual circumstances.",a:[["Never",0],["Less than weekly",1],["1–3 days a week",2],["4 or more days a week",3]]}
+];
+let current=0, answers=Array(questions.length).fill(null);
+const $=id=>document.getElementById(id);
+function render(){
+ const q=questions[current]; $("stepLabel").textContent=`Question ${current+1} of ${questions.length}`;$("categoryLabel").textContent=q.cat;
+ $("progressBar").style.width=`${current/questions.length*100}%`;$("questionText").textContent=q.q;$("questionHelp").textContent=q.help;
+ $("options").innerHTML="";
+ q.a.forEach(([label,score],i)=>{const b=document.createElement("button");b.className="option"+(answers[current]===i?" selected":"");b.innerHTML=`<span>${label}</span><span class="tick" aria-hidden="true"></span>`;b.onclick=()=>{answers[current]=i;render()};$("options").appendChild(b)});
+ $("backBtn").disabled=current===0;$("nextBtn").disabled=answers[current]===null;$("nextBtn").textContent=current===questions.length-1?"See my results →":"Next →";
+}
+function back(){if(current>0){current--;render()}}
+function next(){if(answers[current]===null)return;if(current<questions.length-1){current++;render()}else showResults()}
+function showResults(){
+ const points=answers.reduce((s,a,i)=>s+questions[i].a[a][1],0),max=questions.length*3,percent=Math.round(points/max*100);
+ let level,desc;if(percent<=25){level="Lower habit-concern range";desc="Your answers suggest several supportive habits. Keep building consistency and look for small improvements where they feel realistic."}else if(percent<=55){level="Some habits to review";desc="Your answers show a mix of supportive habits and areas that may benefit from attention. Choose one or two realistic changes to begin with."}else{level="More habits to review";desc="Several answers point to habits worth prioritising. This is not a diagnosis or a prediction of illness; consider making gradual changes and seeking personalised advice if needed."}
+ const groups={"Food choices":[0,1,2,3,4,5],"Movement":[6,7],"Sleep":[8,9],"Daily habits":[10,11]};
+ const insights=[];
+ for(const [name,idx] of Object.entries(groups)){const s=idx.reduce((n,i)=>n+questions[i].a[answers[i]][1],0),m=idx.length*3;if(s/m>=.5)insights.push(name)}
+ const concerns=[];
+ if(answers[0]>=2||answers[1]>=2||answers[2]>=2)concerns.push("A frequent pattern of sugary drinks, highly processed snacks or fried foods can make it harder to maintain a balanced diet and may contribute to excess energy intake. Diet quality over time matters.");
+ if(answers[3]>=2||answers[4]>=2)concerns.push("Low fruit, vegetable and fibre intake can mean missing important nutrients and fibre. A higher-fibre eating pattern is associated with better digestive and cardiometabolic health.");
+ if(answers[5]>=2)concerns.push("Regular processed-meat consumption is associated with increased colorectal cancer risk. Consider replacing it more often with beans, lentils, eggs, fish or other less-processed options.");
+ if(answers[6]>=2||answers[7]>=2)concerns.push("Low activity and prolonged sitting can affect cardiovascular and metabolic health. Regular movement, even in short bouts, can help.");
+ if(answers[8]>=2||answers[9]>=2)concerns.push("Insufficient or disrupted sleep can affect mood, concentration and metabolic health. Persistent sleep problems are worth discussing with a clinician.");
+ if(answers[10]>=2)concerns.push("Tobacco use increases the risk of serious diseases. Evidence-based help is available to support quitting.");
+ if(answers[11]>=2)concerns.push("More frequent alcohol use can increase health risks, including some cancers and liver disease. Less alcohol generally means lower alcohol-related risk.");
+ if(!concerns.length)concerns.push("Your answers do not flag a strong pattern in the areas covered by this short quiz. This does not guarantee low health risk; many important factors are not assessed here.");
+ const tips=[];if(answers[0]>=2)tips.push("Swap one packaged snack for fruit, unsalted nuts or roasted pulses on some days.");if(answers[1]>=2)tips.push("Make water your default drink and gradually reduce sugary drinks.");if(answers[2]>=2)tips.push("Plan a few simple home-prepared meals to reduce reliance on fried takeaway foods.");if(answers[3]>=2||answers[4]>=2)tips.push("Add one extra serving of vegetables, fruit, beans or whole grains each day.");if(answers[5]>=2)tips.push("Replace processed meat more often with beans, lentils, eggs, fish or minimally processed alternatives.");if(answers[6]>=2)tips.push("Start with a 10–15 minute brisk walk and build up gradually toward 150 minutes of moderate activity per week, if appropriate for you.");if(answers[7]>=2)tips.push("Break up long sitting periods with brief standing or walking breaks.");if(answers[8]>=2||answers[9]>=2)tips.push("Try a consistent sleep and wake time and a calming wind-down routine.");if(answers[10]>=2)tips.push("Consider speaking with a healthcare professional or a tobacco-cessation service about support to quit.");if(answers[11]>=2)tips.push("Consider reducing alcohol and discussing your pattern with a healthcare professional.");if(!tips.length)tips.push("Keep your helpful routines going and choose one small habit to strengthen this week.");
+ $("quizBox").classList.add("hidden");$("results").classList.remove("hidden");
+ $("results").innerHTML=`<div class="result-head"><div class="eyebrow">Your Primefood snapshot</div><h2 style="font-size:2rem;margin:8px 0">A starting point for healthier choices.</h2><div class="scoreline"><div class="score">${100-percent}<small>/ 100 habit-support score</small></div></div><span class="level">${level}</span><p style="color:#dce8df;margin-bottom:0">${desc}</p></div>
+ <div class="result-grid"><div class="result-card"><h3>Areas to review</h3>${insights.length?`<ul>${insights.map(x=>`<li>${x}</li>`).join("")}</ul>`:"<p>No major habit category stood out in this brief check-in."}</div>
+ <div class="result-card"><h3>Potential health considerations</h3><ul>${concerns.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+ <div class="result-card wide"><h3>Your practical next steps</h3><ul>${tips.map(x=>`<li>${x}</li>`).join("")}</ul></div>
+ <div class="result-card wide"><h3>Understand this result</h3><p>This score is a simple educational summary of the answers you selected. It is not a validated clinical risk calculator and cannot estimate whether you will develop diabetes, heart disease, cancer or any other condition. Health is influenced by age, genetics, medical history, environment, access to care and many other factors that this quiz does not measure.</p><p>If you have symptoms, a medical condition, are pregnant, or need advice tailored to you, speak with a qualified healthcare professional.</p><button class="next" onclick="restart()">Retake the quiz ↻</button></div></div>
+ <p class="smallprint">General information: WHO healthy-diet guidance, WHO physical-activity guidance, IARC/WHO information on processed meat and cancer, and CDC sleep guidance. This prototype is for education, not diagnosis.</p>`;
+ $("progressBar").style.width="100%";$("results").scrollIntoView({behavior:"smooth",block:"start"});
+}
+function restart(){current=0;answers=Array(questions.length).fill(null);$("results").classList.add("hidden");$("results").innerHTML="";$("quizBox").classList.remove("hidden");render();$("quiz").scrollIntoView({behavior:"smooth"})}
+render();
+</script>
+</body></html>
