@@ -2,116 +2,1073 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Primefood helps you reflect on food and lifestyle habits and explore practical ways to improve them.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Primefood helps you reflect on food and lifestyle habits and explore practical ways to improve them. Private, educational and free.">
+<meta name="theme-color" content="#0E3B2C">
+<meta property="og:title" content="Primefood — Your Food. Your Lifestyle. Your Future.">
+<meta property="og:description" content="A private, 3-minute food and lifestyle check-in with a personalised educational report.">
 <title>Primefood — Your Food. Your Lifestyle. Your Future.</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230E3B2C'/%3E%3Cpath d='M9 23c0-8 5-13 14-14 0 9-5 14-13 14z' fill='%23CFEA7D'/%3E%3C/svg%3E">
 <style>
-:root{--green:#173f32;--green2:#245d48;--lime:#d7efb5;--cream:#f7f6ef;--ink:#1d2923;--muted:#68756d;--orange:#e58a45;--line:#e4e8df;--white:#fff}
-*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
-button{font:inherit;cursor:pointer}.wrap{max-width:1100px;margin:auto;padding:0 24px}
-nav{display:flex;align-items:center;justify-content:space-between;padding:22px 0}.brand{font-size:1.35rem;font-weight:850;letter-spacing:-.05em;color:var(--green)}.brand span{color:var(--orange)}.nav-note{font-size:.85rem;color:var(--muted)}
-.hero{background:var(--green);color:white;border-radius:28px;padding:clamp(32px,6vw,72px);position:relative;overflow:hidden;min-height:400px;display:flex;align-items:center}
-.hero:after{content:"";position:absolute;width:360px;height:360px;border:1px solid #ffffff22;border-radius:50%;right:-60px;top:-85px;box-shadow:0 0 0 35px #ffffff08,0 0 0 75px #ffffff06}
-.hero-content{max-width:660px;position:relative;z-index:1}.eyebrow{text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;font-weight:800;color:var(--lime)}h1{font-size:clamp(2.5rem,6vw,4.7rem);line-height:1.02;letter-spacing:-.065em;margin:18px 0}.hero p{font-size:1.1rem;color:#dce8df;max-width:560px}.primary{border:0;background:var(--lime);color:var(--green);font-weight:800;padding:14px 22px;border-radius:999px;margin-top:18px}.primary:hover{transform:translateY(-1px);filter:brightness(.98)}
-.trust{display:flex;gap:18px;flex-wrap:wrap;margin-top:24px;color:#dce8df;font-size:.83rem}.trust span:before{content:"✓";color:var(--lime);font-weight:900;margin-right:7px}
-.section{padding:58px 0}.section-head{max-width:650px;margin-bottom:24px}.section h2{font-size:clamp(1.8rem,4vw,2.6rem);letter-spacing:-.05em;margin:8px 0}.section p{color:var(--muted)}
-.features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.feature{background:white;border:1px solid var(--line);border-radius:18px;padding:22px}.feature b{display:block;margin:10px 0 4px}.feature p{font-size:.9rem;margin:0}.icon{font-size:1.4rem}
-.quiz-shell{background:white;border:1px solid var(--line);border-radius:24px;padding:clamp(20px,4vw,38px);box-shadow:0 16px 45px #193d2b0a}.quiz-top{display:flex;justify-content:space-between;gap:12px;align-items:center;color:var(--muted);font-size:.85rem}.progress{height:7px;background:#edf1e9;border-radius:99px;margin:15px 0 28px;overflow:hidden}.bar{height:100%;background:var(--green2);width:0%;transition:width .25s}
-.question{font-size:clamp(1.3rem,3vw,1.8rem);line-height:1.25;letter-spacing:-.035em;margin:0 0 8px}.helper{color:var(--muted);margin:0 0 20px;font-size:.92rem}.options{display:grid;gap:10px}.option{width:100%;text-align:left;padding:15px 17px;border:1px solid var(--line);background:#fff;border-radius:13px;color:var(--ink);display:flex;align-items:center;justify-content:space-between;gap:12px}.option:hover{border-color:var(--green2);background:#f8fbf5}.option.selected{border:2px solid var(--green2);background:#f0f7e9;padding:14px 16px}.option .tick{width:21px;height:21px;border:1px solid #c8d1c8;border-radius:50%;flex:none}.option.selected .tick{background:var(--green2);border-color:var(--green2);box-shadow:inset 0 0 0 5px #fff}
-.quiz-actions{display:flex;justify-content:space-between;gap:12px;margin-top:24px}.secondary{background:white;border:1px solid var(--line);border-radius:999px;padding:12px 19px;color:var(--ink);font-weight:700}.next{background:var(--green);color:white;border:0;border-radius:999px;padding:12px 22px;font-weight:800}.next:disabled{opacity:.35;cursor:not-allowed}
-.result-head{background:var(--green);color:white;border-radius:20px;padding:28px}.result-head .eyebrow{color:var(--lime)}.scoreline{display:flex;align-items:end;gap:10px;margin:12px 0}.score{font-size:3.8rem;line-height:1;font-weight:850;letter-spacing:-.07em}.score small{font-size:1rem;font-weight:500;letter-spacing:0;color:#dce8df}.level{display:inline-block;border-radius:999px;padding:6px 11px;background:var(--lime);color:var(--green);font-weight:850;font-size:.8rem}
-.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}.result-card{border:1px solid var(--line);border-radius:17px;padding:21px;background:white}.result-card h3{margin:0 0 10px;letter-spacing:-.025em}.result-card p,.result-card li{font-size:.92rem;color:var(--muted)}.result-card ul{padding-left:20px;margin:8px 0}.wide{grid-column:1/-1}.smallprint{font-size:.8rem;color:var(--muted);margin-top:18px}
-footer{border-top:1px solid var(--line);padding:28px 0 42px;color:var(--muted);font-size:.82rem}.hidden{display:none!important}
-@media(max-width:720px){.features{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr}.wide{grid-column:auto}.hero{min-height:0}.nav-note{display:none}.wrap{padding:0 16px}.section{padding:42px 0}}
+/* =====================================================================
+   PRIMEFOOD — design tokens
+   ===================================================================== */
+:root{
+  --bg:#F4F1E6; --paper:#FFFEF9; --ink:#12241B; --muted:#5C6A61; --line:#E2DDCB;
+  --forest:#0E3B2C; --forest2:#17533F; --leaf:#2F8A5B; --lime:#CFEA7D; --limeSoft:#E9F3C9;
+  --coral:#E4583E; --amber:#EE9F2E; --sun:#FFD98A; --peach:#FBE3C0;
+  --good:#1F7A4D; --mid:#A8650A; --low:#BE3F28;
+  --fill-good:#2F8A5B; --fill-mid:#EE9F2E; --fill-low:#E4583E;
+  --r-lg:28px; --r-md:20px; --r-sm:14px;
+  --shadow-sm:0 1px 2px rgba(14,59,44,.06),0 4px 14px rgba(14,59,44,.05);
+  --shadow-md:0 2px 4px rgba(14,59,44,.05),0 16px 40px rgba(14,59,44,.09);
+  --shadow-lg:0 4px 8px rgba(14,59,44,.06),0 30px 70px rgba(14,59,44,.16);
+  --display:"Fraunces","Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --sans:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+  --ease:cubic-bezier(.2,.75,.2,1);
+}
+
+/* =====================================================================
+   Base
+   ===================================================================== */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(900px 520px at 88% -8%,#E4F1B9 0,transparent 62%),
+    radial-gradient(760px 520px at -12% 18%,#FBE3C0 0,transparent 58%),
+    radial-gradient(rgba(14,59,44,.07) 1px,transparent 1.2px) 0 0/22px 22px;}
+button{font:inherit;cursor:pointer;color:inherit}
+a{color:inherit}
+h1,h2,h3,h4{margin:0}
+p{margin:0}
+svg{display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--forest);color:#fff;padding:10px 16px;border-radius:10px;z-index:99}
+.skip:focus{left:12px}
+:focus-visible{outline:3px solid var(--leaf);outline-offset:3px;border-radius:10px}
+.ico{width:1em;height:1em;flex:none}
+.ico svg{width:100%;height:100%}
+.display{font-family:var(--display);font-weight:600;letter-spacing:-.03em}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;font-weight:800;color:var(--leaf)}
+
+/* Views */
+.view{display:none}
+.view.active{display:block;animation:viewIn .55s var(--ease) both}
+.view.leaving{display:block;animation:viewOut .22s ease both;pointer-events:none}
+@keyframes viewIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes viewOut{to{opacity:0;transform:translateY(-8px)}}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;border:0;border-radius:999px;font-weight:700;letter-spacing:-.01em;text-decoration:none;transition:transform .25s var(--ease),box-shadow .25s,background .2s,opacity .2s;white-space:nowrap}
+.btn-primary{background:var(--forest);color:#fff;padding:8px 8px 8px 26px;font-size:1.02rem;box-shadow:0 10px 24px rgba(14,59,44,.28)}
+.btn-primary .dot{width:42px;height:42px;border-radius:50%;background:var(--lime);color:var(--forest);display:grid;place-items:center;font-size:1.15rem;transition:transform .3s var(--ease)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(14,59,44,.32)}
+.btn-primary:hover .dot{transform:translateX(3px) rotate(-8deg)}
+.btn-primary:active{transform:translateY(0)}
+.btn-ghost{background:transparent;border:1.5px solid rgba(14,59,44,.22);color:var(--forest);padding:13px 24px}
+.btn-ghost:hover{background:rgba(14,59,44,.06);transform:translateY(-2px)}
+.btn-lime{background:var(--lime);color:var(--forest);padding:14px 26px}
+.btn-lime:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(0,0,0,.2)}
+.btn-sm{padding:10px 18px;font-size:.9rem}
+.btn:disabled{opacity:.4;cursor:not-allowed;transform:none!important;box-shadow:none!important}
+
+/* =====================================================================
+   Landing — nav
+   ===================================================================== */
+.nav{position:sticky;top:12px;z-index:30;margin:12px auto 0;max-width:1124px;padding:0 14px}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 12px 10px 20px;background:rgba(255,254,249,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(226,221,203,.9);border-radius:999px;box-shadow:var(--shadow-sm)}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:1.4rem;letter-spacing:-.04em;color:var(--forest);text-decoration:none;background:none;border:0;padding:0}
+.brand .logo{width:32px;height:32px;border-radius:10px;background:var(--forest);display:grid;place-items:center}
+.brand .logo svg{width:18px;height:18px}
+.brand b{color:var(--coral);font-weight:700}
+.nav-links{display:flex;gap:26px;font-size:.92rem;font-weight:600;color:var(--muted)}
+.nav-links a{text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--forest)}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:center;padding:clamp(36px,6vw,80px) 0 clamp(40px,6vw,72px)}
+.pill{display:inline-flex;align-items:center;gap:9px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:7px 14px 7px 10px;font-size:.82rem;font-weight:700;color:var(--forest);box-shadow:var(--shadow-sm)}
+.pill i{width:9px;height:9px;border-radius:50%;background:var(--leaf);box-shadow:0 0 0 0 rgba(47,138,91,.5);animation:ping 2.2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 10px rgba(47,138,91,0)}100%{box-shadow:0 0 0 0 rgba(47,138,91,0)}}
+.hero h1{font-family:var(--display);font-weight:600;font-size:clamp(2.9rem,6.6vw,5.4rem);line-height:.98;letter-spacing:-.045em;margin:22px 0 22px;color:var(--forest)}
+.hero h1 em{font-style:italic;font-weight:500;color:var(--leaf);position:relative;white-space:nowrap}
+.hero h1 em:after{content:"";position:absolute;left:-2%;right:-2%;bottom:.04em;height:.22em;background:var(--lime);z-index:-1;border-radius:99px;transform:scaleX(0);transform-origin:left;animation:underline .9s .6s var(--ease) forwards}
+@keyframes underline{to{transform:scaleX(1)}}
+.hero .lead{font-size:clamp(1.02rem,1.6vw,1.2rem);color:var(--muted);max-width:540px}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:32px}
+.trust{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:30px;font-size:.86rem;color:var(--muted);font-weight:600}
+.trust span{display:inline-flex;align-items:center;gap:8px}
+.trust .ico{color:var(--leaf);font-size:1.1rem}
+.entry{opacity:0;transform:translateY(18px);animation:rise .8s var(--ease) forwards;animation-delay:calc(var(--i,0)*90ms + 80ms)}
+@keyframes rise{to{opacity:1;transform:none}}
+
+.art{position:relative;aspect-ratio:1/1;width:100%;max-width:560px;margin:0 auto}
+.art>svg.plate{position:absolute;inset:0;width:100%;height:100%;animation:spinSlow 90s linear infinite}
+.art .still{position:absolute;inset:0;width:100%;height:100%}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+.float{position:absolute;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:12px 15px;box-shadow:var(--shadow-md);display:flex;align-items:center;gap:12px;animation:bob 6s ease-in-out infinite;z-index:2}
+.float small{display:block;font-size:.7rem;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.float b{font-size:1rem;letter-spacing:-.02em;color:var(--forest)}
+.float .bubble{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-size:1.2rem}
+.f1{top:6%;left:-2%}.f2{bottom:12%;left:-4%;animation-delay:-2s}.f3{top:30%;right:-3%;animation-delay:-4s}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.sample{position:absolute;right:6%;bottom:2%;font-size:.7rem;color:var(--muted);font-weight:600;background:rgba(255,254,249,.8);padding:3px 10px;border-radius:99px;border:1px solid var(--line)}
+
+/* Strip */
+.strip{display:grid;grid-template-columns:repeat(4,1fr);background:var(--forest);color:#fff;border-radius:var(--r-lg);overflow:hidden}
+.strip div{padding:26px 28px;border-right:1px solid rgba(255,255,255,.1)}
+.strip div:last-child{border:0}
+.strip b{display:block;font-family:var(--display);font-size:2.3rem;font-weight:600;letter-spacing:-.04em;color:var(--lime);line-height:1.1}
+.strip span{font-size:.88rem;color:#CBDAD0}
+
+/* Sections */
+.section{padding:clamp(64px,9vw,120px) 0 0}
+.sec-head{max-width:700px;margin-bottom:38px}
+.sec-head h2{font-family:var(--display);font-weight:600;font-size:clamp(2rem,4.6vw,3.2rem);letter-spacing:-.04em;line-height:1.05;margin:14px 0 14px;color:var(--forest)}
+.sec-head p{color:var(--muted);font-size:1.06rem}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:s}
+.step{position:relative;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:32px 28px 30px;box-shadow:var(--shadow-sm);transition:transform .35s var(--ease),box-shadow .35s}
+.step:hover{transform:translateY(-6px);box-shadow:var(--shadow-md)}
+.step .num{position:absolute;right:22px;top:12px;font-family:var(--display);font-size:5rem;font-weight:600;line-height:1;color:var(--limeSoft);letter-spacing:-.06em}
+.step .bubble{width:54px;height:54px;border-radius:18px;display:grid;place-items:center;font-size:1.6rem;margin-bottom:22px;position:relative}
+.step h3{font-size:1.2rem;letter-spacing:-.02em;margin-bottom:8px;position:relative}
+.step p{color:var(--muted);font-size:.96rem;position:relative}
+.bg-lime{background:var(--limeSoft);color:var(--forest2)}.bg-peach{background:var(--peach);color:#9A5410}.bg-sun{background:#FFF0C8;color:#8A5B00}.bg-mint{background:#D7EFE2;color:var(--forest2)}.bg-coral{background:#FBDCD4;color:#A63A24}
+
+.matters{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.fact{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-md);padding:26px 24px;box-shadow:var(--shadow-sm);transition:transform .35s var(--ease)}
+.fact:hover{transform:translateY(-5px)}
+.fact .big{font-family:var(--display);font-size:2.6rem;font-weight:600;letter-spacing:-.05em;color:var(--forest);line-height:1}
+.fact .big small{font-size:1.1rem;color:var(--leaf);letter-spacing:0;margin-left:4px;font-family:var(--sans);font-weight:700}
+.fact h3{font-size:1.02rem;margin:14px 0 6px;letter-spacing:-.01em}
+.fact p{font-size:.9rem;color:var(--muted)}
+.note-line{margin-top:20px;font-size:.84rem;color:var(--muted);display:flex;gap:10px;align-items:flex-start}
+.note-line .ico{margin-top:3px;color:var(--leaf)}
+
+.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.principle{padding:30px;border-radius:var(--r-lg);background:var(--forest);color:#fff;position:relative;overflow:hidden;overflow:clip}
+.principle:nth-child(2){background:var(--forest2)}
+.principle:nth-child(3){background:#1F6A50}
+.principle .ico{font-size:1.8rem;color:var(--lime);margin-bottom:16px}
+.principle h3{font-size:1.18rem;letter-spacing:-.02em;margin-bottom:8px}
+.principle p{font-size:.95rem;color:#CFE0D5}
+.principle:after{content:"";position:absolute;right:-50px;bottom:-60px;width:180px;height:180px;border-radius:50%;border:1px solid rgba(255,255,255,.12);box-shadow:0 0 0 30px rgba(255,255,255,.04)}
+
+.cta-band{margin-top:clamp(64px,9vw,110px);background:linear-gradient(135deg,var(--forest) 0,var(--forest2) 100%);border-radius:36px;padding:clamp(36px,6vw,72px);color:#fff;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap;position:relative;overflow:hidden;overflow:clip}
+.cta-band h2{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,4vw,3rem);letter-spacing:-.04em;line-height:1.05;max-width:560px}
+.cta-band h2 em{color:var(--lime);font-weight:500}
+.cta-band p{color:#CFE0D5;margin-top:12px;max-width:460px}
+.cta-band:before{content:"";position:absolute;right:-90px;top:-110px;width:380px;height:380px;border-radius:50%;border:1px solid rgba(255,255,255,.14);box-shadow:0 0 0 40px rgba(255,255,255,.04),0 0 0 90px rgba(255,255,255,.03)}
+.cta-band>*{position:relative}
+
+footer{margin-top:90px;border-top:1px solid var(--line);padding:46px 0 54px;color:var(--muted);font-size:.86rem}
+.foot{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:36px}
+.foot h4{font-size:.74rem;text-transform:uppercase;letter-spacing:.12em;color:var(--forest);margin-bottom:12px}
+.foot ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.foot a{text-decoration:none;border-bottom:1px solid transparent}.foot a:hover{border-color:var(--leaf);color:var(--forest)}
+.foot .disc{margin-top:14px;max-width:420px}
+.legal{margin-top:34px;padding-top:22px;border-top:1px solid var(--line);font-size:.8rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+/* Reveal on scroll */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0ms)}
+.reveal.in{opacity:1;transform:none}
+
+/* =====================================================================
+   Quiz
+   ===================================================================== */
+.qpage{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
+.qtop{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0}
+.qtop .private{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;font-weight:700;color:var(--muted)}
+.qtop .private .ico{color:var(--leaf)}
+.exit{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-weight:700;font-size:.85rem;color:var(--muted);transition:all .2s}
+.exit:hover{color:var(--forest);border-color:var(--forest)}
+.qmain{flex:1;display:flex;flex-direction:column;justify-content:center;padding:6px 0 34px;max-width:820px;width:100%;margin:0 auto}
+.stepper{display:flex;gap:8px;margin-bottom:18px}
+.seg{flex:var(--n,1) 1 0;min-width:0}
+.seg-label{display:block;font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#9AA59D;margin-bottom:7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .3s}
+.seg.cur .seg-label{color:var(--forest)}
+.seg.done .seg-label{color:var(--leaf)}
+.seg-bar{height:7px;border-radius:99px;background:#E4E1D2;overflow:hidden}
+.seg-bar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--leaf),#7CC26A);transition:width .6s var(--ease)}
+.qcard{background:var(--paper);border:1px solid var(--line);border-radius:32px;padding:clamp(22px,4.5vw,46px);box-shadow:var(--shadow-lg);position:relative;overflow:hidden;overflow:clip}
+.qcard:before{content:"";position:absolute;right:-70px;top:-70px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,var(--limeSoft) 0,transparent 70%);pointer-events:none}
+.qmeta{display:flex;align-items:center;justify-content:space-between;gap:12px;position:relative}
+.catpill{display:inline-flex;align-items:center;gap:8px;background:var(--limeSoft);color:var(--forest2);font-weight:800;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;padding:7px 14px 7px 10px;border-radius:99px}
+.qcount{font-size:.86rem;color:var(--muted);font-weight:700;font-variant-numeric:tabular-nums}
+.qbody{position:relative}
+.qbody.out-l{animation:outL .2s ease forwards}.qbody.out-r{animation:outR .2s ease forwards}
+.qbody.in-r{animation:inR .42s var(--ease) both}.qbody.in-l{animation:inL .42s var(--ease) both}
+@keyframes outL{to{opacity:0;transform:translateX(-36px)}}@keyframes outR{to{opacity:0;transform:translateX(36px)}}
+@keyframes inR{from{opacity:0;transform:translateX(44px)}}@keyframes inL{from{opacity:0;transform:translateX(-44px)}}
+.qhead{display:flex;gap:18px;align-items:flex-start;margin:26px 0 8px}
+.qicon{width:60px;height:60px;border-radius:20px;background:var(--forest);color:var(--lime);display:grid;place-items:center;font-size:1.9rem;flex:none;box-shadow:0 10px 22px rgba(14,59,44,.25);transform:rotate(-4deg)}
+.qtitle{font-family:var(--display);font-weight:600;font-size:clamp(1.35rem,3.2vw,2rem);line-height:1.18;letter-spacing:-.03em;color:var(--forest);outline:none}
+.qhelp{color:var(--muted);font-size:.96rem;margin:10px 0 24px 78px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-left:0}
+.opt{position:relative;display:flex;align-items:center;gap:14px;text-align:left;padding:18px 18px;background:#fff;border:1.5px solid var(--line);border-radius:20px;font-weight:600;font-size:1rem;line-height:1.3;color:var(--ink);transition:transform .25s var(--ease),border-color .2s,background .2s,box-shadow .25s;min-height:76px;animation:rise .5s var(--ease) both;animation-delay:calc(var(--i)*55ms + 120ms)}
+.opt .key{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:var(--bg);font-weight:800;font-size:.85rem;color:var(--muted);flex:none;transition:all .25s}
+.opt .lbl{flex:1}
+.opt .tick{width:26px;height:26px;border-radius:50%;border:1.5px solid #CBD2C8;display:grid;place-items:center;color:#fff;flex:none;transition:all .25s var(--ease);font-size:.9rem}
+.opt .tick svg{transform:scale(0);transition:transform .3s var(--ease) .05s}
+.opt:hover{transform:translateY(-3px);border-color:var(--leaf);box-shadow:var(--shadow-md)}
+.opt:active{transform:scale(.985)}
+.opt.sel{border-color:var(--forest);background:linear-gradient(180deg,#F2F9E4,#EAF5D3);box-shadow:0 0 0 3px rgba(47,138,91,.18),var(--shadow-sm)}
+.opt.sel .key{background:var(--forest);color:var(--lime)}
+.opt.sel .tick{background:var(--forest);border-color:var(--forest)}
+.opt.sel .tick svg{transform:scale(1)}
+.qfoot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:30px;position:relative}
+.qfoot .hint{font-size:.78rem;color:#98A39B;font-weight:600}
+.back{background:transparent;border:1.5px solid var(--line);color:var(--ink);padding:13px 22px;border-radius:999px;font-weight:700;transition:all .2s}
+.back:hover:not(:disabled){border-color:var(--forest);transform:translateX(-2px)}
+.back:disabled{opacity:.35;cursor:not-allowed}
+.next{background:var(--forest);color:#fff;border:0;padding:14px 26px;border-radius:999px;font-weight:800;display:inline-flex;gap:10px;align-items:center;transition:all .25s var(--ease);box-shadow:0 10px 22px rgba(14,59,44,.25)}
+.next:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 14px 28px rgba(14,59,44,.32)}
+.next:disabled{opacity:.3;box-shadow:none;cursor:not-allowed}
+.next.pulse{animation:pulse .7s var(--ease)}
+@keyframes pulse{40%{transform:scale(1.07)}}
+
+/* Loading */
+.loading{min-height:100vh;min-height:100dvh;display:grid;place-items:center;text-align:center;padding:24px}
+.load-ring{width:150px;height:150px;position:relative;margin:0 auto 30px}
+.load-ring svg.spin{position:absolute;inset:0;width:100%;height:100%;animation:spinSlow 1.4s linear infinite}
+.load-ring .core{position:absolute;inset:26px;border-radius:50%;background:var(--forest);display:grid;place-items:center;color:var(--lime);font-size:2.2rem;animation:breathe 1.8s ease-in-out infinite}
+@keyframes breathe{50%{transform:scale(.92)}}
+.loading h2{font-family:var(--display);font-size:clamp(1.7rem,4vw,2.3rem);letter-spacing:-.035em;color:var(--forest);font-weight:600}
+.lsteps{list-style:none;padding:0;margin:26px auto 0;display:grid;gap:12px;text-align:left;width:max-content;max-width:100%}
+.lsteps li{display:flex;gap:12px;align-items:center;color:#9AA59D;font-weight:600;font-size:.96rem;transition:color .4s}
+.lsteps li .c{width:24px;height:24px;border-radius:50%;border:1.5px solid #CFD5CB;display:grid;place-items:center;color:#fff;font-size:.8rem;transition:all .4s var(--ease)}
+.lsteps li.on{color:var(--forest)}
+.lsteps li.on .c{border-color:var(--leaf);animation:pulse .7s}
+.lsteps li.done{color:var(--forest)}
+.lsteps li.done .c{background:var(--leaf);border-color:var(--leaf)}
+
+/* =====================================================================
+   Results
+   ===================================================================== */
+.rtop{display:flex;justify-content:space-between;align-items:center;padding:18px 0;gap:12px}
+.rtop .acts{display:flex;gap:10px}
+.rhero{background:var(--forest);color:#fff;border-radius:36px;padding:clamp(26px,5vw,56px);display:grid;grid-template-columns:1.25fr .75fr;gap:34px;align-items:center;position:relative;overflow:hidden;overflow:clip;box-shadow:var(--shadow-lg)}
+.rhero:before{content:"";position:absolute;left:-120px;bottom:-160px;width:440px;height:440px;border-radius:50%;border:1px solid rgba(255,255,255,.1);box-shadow:0 0 0 46px rgba(255,255,255,.035),0 0 0 100px rgba(255,255,255,.025)}
+.rhero>*{position:relative}
+.rhero .eyebrow{color:var(--lime)}
+.rhero h1{font-family:var(--display);font-weight:600;font-size:clamp(2.2rem,5vw,3.6rem);letter-spacing:-.045em;line-height:1.02;margin:14px 0 16px}
+.rhero .summary{font-size:1.08rem;color:#E3EEE7;max-width:600px}
+.rhero .summary strong{color:var(--lime);font-weight:700}
+.rhero .desc{margin-top:12px;color:#BCD0C3;font-size:.98rem;max-width:600px}
+.level{display:inline-flex;align-items:center;gap:8px;border-radius:99px;padding:7px 14px;background:var(--lime);color:var(--forest);font-weight:800;font-size:.84rem;margin-top:20px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.chip{font-size:.78rem;font-weight:700;border-radius:99px;padding:6px 12px;background:rgba(255,255,255,.1);color:#D9E7DD;border:1px solid rgba(255,255,255,.14)}
+.bigring{position:relative;width:min(100%,290px);aspect-ratio:1;margin:0 auto}
+.bigring svg{width:100%;height:100%}
+.bigring .center{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.bigring .num{font-family:var(--display);font-weight:600;font-size:clamp(3.6rem,9vw,5.4rem);letter-spacing:-.06em;line-height:1}
+.bigring .of{font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#BCD0C3;margin-top:4px}
+
+.rsec{margin-top:clamp(40px,6vw,72px)}
+.rsec>.sec-head{margin-bottom:24px}
+.rsec>.sec-head h2{font-size:clamp(1.7rem,3.6vw,2.4rem)}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(20px,3vw,32px);box-shadow:var(--shadow-sm)}
+.card h3{font-size:1.15rem;letter-spacing:-.02em;margin-bottom:4px;display:flex;align-items:center;gap:10px}
+.card .sub{color:var(--muted);font-size:.9rem;margin-bottom:18px}
+.profile{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.radar-wrap{display:grid;place-items:center}
+.radar-wrap svg{width:100%;max-width:440px;height:auto;overflow:visible}
+.radar-wrap text{font-family:var(--sans);font-size:12px;fill:var(--ink);font-weight:700}
+.radar-wrap text.sc{fill:var(--muted);font-weight:600;font-size:11px}
+.catbars{display:grid;gap:16px}
+.cb{display:grid;grid-template-columns:auto 1fr auto;gap:6px 14px;align-items:center}
+.cb .ci{width:40px;height:40px;border-radius:13px;display:grid;place-items:center;font-size:1.25rem}
+.cb .name{font-weight:700;font-size:.95rem;letter-spacing:-.01em;color:var(--ink)}
+.cb .name small{display:block;font-weight:600;font-size:.76rem}
+.cb .val{font-family:var(--display);font-weight:600;font-size:1.5rem;letter-spacing:-.04em}
+.track{grid-column:1/-1;height:10px;border-radius:99px;background:#ECE9DB;overflow:hidden}
+.track i{display:block;height:100%;width:0;border-radius:99px;background:var(--c,var(--fill-good));transition:width 1.2s var(--ease);transition-delay:var(--d,0ms)}
+.reveal.in .track i{width:var(--w)}
+.tone-good{--c:var(--fill-good);color:var(--good)}.tone-mid{--c:var(--fill-mid);color:var(--mid)}.tone-low{--c:var(--fill-low);color:var(--low)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.78rem;color:var(--muted);font-weight:600;margin-top:18px}
+.legend span{display:inline-flex;align-items:center;gap:6px}.legend i{width:10px;height:10px;border-radius:50%}
+
+.deep{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.deep .wide{grid-column:1/-1}
+.dhead{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+.dhead .ci{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;font-size:1.5rem;flex:none}
+.dhead h3{margin:0;color:var(--ink)}
+.dhead .band{font-size:.8rem;font-weight:800}
+.mini{margin-left:auto;position:relative;width:64px;height:64px;flex:none}
+.mini .t{position:absolute;inset:0;display:grid;place-items:center;font-weight:800;font-size:.95rem;letter-spacing:-.03em}
+.ring-bg{stroke:#ECE9DB}
+.ring-fg{stroke:var(--c);stroke-linecap:round;stroke-dasharray:var(--c0);stroke-dashoffset:var(--c0);transition:stroke-dashoffset 1.4s var(--ease)}
+.reveal.in .ring-fg{stroke-dashoffset:var(--off)}
+.narr{color:var(--muted);font-size:.95rem;margin-bottom:14px}
+.narr b{color:var(--ink)}
+.ctx{font-size:.84rem;color:#6C796F;background:var(--bg);border-radius:14px;padding:11px 14px;margin-top:14px;display:flex;gap:10px}
+.ctx .ico{color:var(--leaf);margin-top:2px}
+.rows{display:grid;gap:4px}
+.arow{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:10px 4px;border-top:1px dashed var(--line)}
+.arow:first-child{border-top:0}
+.arow .ai{width:34px;height:34px;border-radius:11px;background:var(--bg);display:grid;place-items:center;color:var(--forest2);font-size:1.05rem}
+.arow b{display:block;font-size:.92rem;letter-spacing:-.01em;color:var(--ink)}
+.arow span.a{display:block;font-size:.82rem;color:var(--muted)}
+.pips{display:inline-flex;gap:4px}
+.pips i{width:16px;height:8px;border-radius:99px;background:#E4E1D2;transform:scaleX(.4);transition:transform .5s var(--ease),background .3s;transition-delay:calc(var(--k)*90ms + 200ms)}
+.reveal.in .pips i.on{background:var(--c);transform:none}
+.reveal.in .pips i{transform:none}
+
+/* water glass */
+.glass-row{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.glass{width:110px;flex:none}
+.glass svg{width:100%;height:auto;overflow:visible}
+.glass .water{transform:translateY(120px);transition:transform 1.6s var(--ease) .2s}
+.reveal.in .glass .water{transform:translateY(var(--y))}
+.glass .wave{animation:wave 3s ease-in-out infinite alternate}
+@keyframes wave{to{transform:translateX(-12px)}}
+
+.cmp{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cmpc{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-md);padding:22px;box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s}
+.cmpc:hover{transform:translateY(-5px);box-shadow:var(--shadow-md)}
+.cmpc .top{color:var(--ink);display:flex;align-items:center;gap:10px;font-weight:800;font-size:.92rem;margin-bottom:16px}
+.cmpc .top .ico{font-size:1.2rem;color:var(--forest2)}
+.cmpc .top .st{margin-left:auto;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;font-weight:800}
+.cmpc dl{margin:0;display:grid;gap:12px}
+.cmpc dt{font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:#8A968E;font-weight:800}
+.cmpc dd{color:var(--ink);margin:2px 0 0;font-weight:700;font-size:.95rem;letter-spacing:-.01em}
+.cmpc .pips{margin-top:16px}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.good-card{background:linear-gradient(160deg,#F1F8E0,#E5F1CC);border-color:#D5E6B0}
+.focus-card{background:linear-gradient(160deg,#FFF3E4,#FDE7D0);border-color:#F2D6B3}
+.li{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-top:1px solid rgba(14,59,44,.08)}
+.li:first-of-type{border-top:0}
+.li .ai{width:38px;height:38px;border-radius:12px;background:rgba(255,255,255,.75);display:grid;place-items:center;font-size:1.15rem;color:var(--forest2);flex:none}
+.li b{display:block;letter-spacing:-.01em}
+.li .tag{display:inline-block;font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:2px 8px;border-radius:99px;background:rgba(255,255,255,.8);margin-left:6px;vertical-align:middle}
+.li p{font-size:.88rem;color:#55645A;margin-top:2px}
+.areas{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px}
+.areas span{background:#fff;border-radius:99px;padding:5px 12px;font-size:.8rem;font-weight:800;color:#8A4B11;border:1px solid #F0D2AE}
+.empty{color:#55645A;font-size:.94rem}
+
+.considers{display:grid;gap:12px}
+.cons{display:flex;gap:14px;background:var(--paper);border:1px solid var(--line);border-left:5px solid var(--amber);border-radius:var(--r-sm);padding:16px 18px}
+.cons .ico{font-size:1.3rem;color:var(--mid);margin-top:2px}
+.cons p{font-size:.94rem;color:#46544B}
+.cons small{display:block;font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:.68rem;color:var(--mid);margin-bottom:3px}
+.cons.ok{border-left-color:var(--leaf)}.cons.ok .ico,.cons.ok small{color:var(--good)}
+
+.plan{display:grid;gap:12px}
+.todo{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;text-align:left;width:100%;background:var(--paper);border:1.5px solid var(--line);border-radius:var(--r-md);padding:18px 20px;transition:all .3s var(--ease)}
+.todo:hover{transform:translateX(4px);border-color:var(--leaf);box-shadow:var(--shadow-sm)}
+.todo .box{width:30px;height:30px;border-radius:10px;border:2px solid #C5CCC1;display:grid;place-items:center;color:#fff;transition:all .25s var(--ease)}
+.todo .box svg{transform:scale(0);transition:transform .3s var(--ease)}
+.todo b{display:block;font-weight:600;font-size:.98rem;line-height:1.4;transition:color .2s}
+.todo small{color:var(--muted);font-weight:700;font-size:.75rem;text-transform:uppercase;letter-spacing:.07em}
+.todo .start{font-size:.72rem;font-weight:800;background:var(--lime);color:var(--forest);padding:5px 11px;border-radius:99px;white-space:nowrap}
+.todo.done{background:#F0F7E3;border-color:#CFE3A8}
+.todo.done .box{background:var(--leaf);border-color:var(--leaf)}
+.todo.done .box svg{transform:scale(1)}
+.todo.done b{color:#6C7F71;text-decoration:line-through;text-decoration-color:rgba(14,59,44,.35)}
+
+.understand{background:var(--forest);color:#fff;border-color:var(--forest);box-shadow:var(--shadow-lg)}
+.understand h3{color:#fff;font-family:var(--display);font-size:1.7rem;letter-spacing:-.03em;font-weight:600}
+.understand p{color:#CFE0D5;margin-top:12px;font-size:.96rem;max-width:760px}
+.understand .vs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+.understand .vs div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-sm);padding:16px 18px;font-size:.9rem;color:#D8E6DC}
+.understand .vs b{display:block;color:var(--lime);margin-bottom:4px}
+details.how{margin-top:18px;border-top:1px solid rgba(255,255,255,.14);padding-top:14px}
+details.how summary{cursor:pointer;font-weight:700;color:var(--lime);list-style:none;display:flex;align-items:center;gap:8px}
+details.how summary::-webkit-details-marker{display:none}
+details.how summary:after{content:"+";font-size:1.2rem;margin-left:4px}
+details.how[open] summary:after{content:"–"}
+details.how ol{color:#CFE0D5;font-size:.9rem;margin:12px 0 0;padding-left:20px;display:grid;gap:6px}
+.endrow{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.sources{margin-top:22px;font-size:.82rem;color:var(--muted)}
+.sources a{color:var(--forest2);font-weight:600}
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,30px);background:var(--forest);color:#fff;padding:12px 20px;border-radius:99px;font-weight:700;font-size:.9rem;opacity:0;transition:all .35s var(--ease);z-index:60;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* =====================================================================
+   Responsive
+   ===================================================================== */
+@media(max-width:980px){
+  .hero{grid-template-columns:1fr;gap:30px}
+  .art{max-width:440px}
+  .f1{left:0}.f2{left:0}.f3{right:0}
+  .strip{grid-template-columns:1fr 1fr}.strip div:nth-child(2){border-right:0}.strip div:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.1)}
+  .matters{grid-template-columns:1fr 1fr}
+  .cmp{grid-template-columns:1fr 1fr}
+  .rhero{grid-template-columns:1fr}
+  .profile{grid-template-columns:1fr}
+}
+@media(max-width:720px){
+  .wrap{padding:0 16px}
+  .nav-links{display:none}
+  .nav{top:8px;padding:0 10px}
+  .nav-in{padding:8px 8px 8px 14px}
+  .nav .long{display:none}
+  .brand{font-size:1.25rem}
+  .steps,.principles,.deep,.two,.foot{grid-template-columns:1fr}
+  .opts{grid-template-columns:1fr}
+  .qhead{gap:14px}
+  .qicon{width:50px;height:50px;font-size:1.55rem;border-radius:16px}
+  .qhelp{margin-left:0}
+  .opt{min-height:64px;padding:15px 14px}
+  .qfoot .hint{display:none}
+  .seg-label{display:none}
+  .stepper{margin-bottom:14px;gap:6px}
+  .qtop .private{display:none}
+  .qcard{border-radius:26px}
+  .qfoot{position:sticky;bottom:0;z-index:3;background:var(--paper);border-top:1px solid var(--line);margin:22px -22px -22px;padding:14px 22px calc(14px + env(safe-area-inset-bottom));box-shadow:0 -10px 24px rgba(14,59,44,.06)}
+  .cmp{grid-template-columns:1fr}
+  .understand .vs{grid-template-columns:1fr}
+  .rtop .acts .txt{display:none}
+  .float{padding:9px 11px}.float b{font-size:.88rem}.float .bubble{width:32px;height:32px}
+  .cta-band{border-radius:28px}
+  .todo{grid-template-columns:auto 1fr;}.todo .start{grid-column:2;justify-self:start}
+}
+@media(max-width:420px){.strip b{font-size:1.8rem}.strip div{padding:20px 18px}.matters{grid-template-columns:1fr}.btn-primary{padding-left:20px}}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important;scroll-behavior:auto!important}
+  .entry,.reveal{opacity:1;transform:none}
+}
+@media print{
+  body{background:#fff}body:before{display:none}
+  .rtop,.endrow,.toast,.todo .start{display:none!important}
+  .reveal{opacity:1!important;transform:none!important}
+  .track i{width:var(--w)!important}.ring-fg{stroke-dashoffset:var(--off)!important}
+  .glass .water{transform:translateY(var(--y))!important}.pips i{transform:none!important}
+  .card,.rhero,.cmpc{box-shadow:none;break-inside:avoid}
+  .rhero,.understand{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .view{display:none!important}#view-results{display:block!important}
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <nav><div class="brand">primefood<span>.</span></div><div class="nav-note">A food & lifestyle awareness experience</div></nav>
-  <header class="hero">
-    <div class="hero-content">
-      <div class="eyebrow">Small choices. Long-term impact.</div>
-      <h1>Your food.<br>Your lifestyle.<br><span style="color:var(--lime)">Your future.</span></h1>
-      <p>Everyday habits add up. Take a short, non-diagnostic quiz to reflect on your food, movement, sleep and other lifestyle choices — and discover practical ways to make healthier changes.</p>
-      <button class="primary" onclick="document.getElementById('quiz').scrollIntoView({behavior:'smooth'})">Take the free quiz →</button>
-      <div class="trust"><span>About 3 minutes</span><span>No account needed</span><span>Private in this browser</span></div>
-    </div>
-  </header>
+<a class="skip" href="#main">Skip to content</a>
+<noscript><div style="padding:24px;text-align:center;font-family:sans-serif">Primefood needs JavaScript to run the assessment. Nothing is sent to a server — everything happens in your browser.</div></noscript>
 
-  <section class="section">
-    <div class="section-head"><div class="eyebrow" style="color:var(--green2)">How it works</div><h2>A snapshot of your everyday habits.</h2><p>Answer honestly. Your result is an educational reflection of the habits you report, not a medical assessment or prediction.</p></div>
-    <div class="features">
-      <div class="feature"><div class="icon">🥗</div><b>Look at your choices</b><p>Explore food, drinks, activity, sleep and daily routines.</p></div>
-      <div class="feature"><div class="icon">📊</div><b>Understand your pattern</b><p>See an indicative habit score and the areas that may deserve attention.</p></div>
-      <div class="feature"><div class="icon">🌱</div><b>Find a next step</b><p>Get practical ideas to discuss with a qualified health professional when needed.</p></div>
-    </div>
-  </section>
+<main id="main">
+<!-- ============================ LANDING ============================ -->
+<section class="view active" id="view-landing" aria-label="Primefood home">
+  <div class="nav"><div class="nav-in">
+    <a class="brand" href="#top" aria-label="Primefood home"><span class="logo" data-ic="logo"></span><span>primefood<b>.</b></span></a>
+    <nav class="nav-links" aria-label="Sections"><a href="#how">How it works</a><a href="#why">Why it matters</a><a href="#trust">Our approach</a></nav>
+    <button class="btn btn-primary btn-sm" data-start style="padding:6px 6px 6px 20px;font-size:.9rem">Start<span class="long">&nbsp;assessment</span> <span class="dot" style="width:34px;height:34px" data-ic="arrow"></span></button>
+  </div></div>
 
-  <section class="section" id="quiz">
-    <div class="section-head"><div class="eyebrow" style="color:var(--green2)">The Primefood check-in</div><h2>What do your habits look like?</h2><p>Choose the answer that best describes a typical week. There are no “good” or “bad” people here — only habits you can work on.</p></div>
-    <div class="quiz-shell" id="quizBox">
-      <div class="quiz-top"><span id="stepLabel">Question 1 of 12</span><span id="categoryLabel">Food choices</span></div>
-      <div class="progress"><div class="bar" id="progressBar"></div></div>
-      <h3 class="question" id="questionText"></h3><p class="helper" id="questionHelp"></p>
-      <div class="options" id="options"></div>
-      <div class="quiz-actions"><button class="secondary" id="backBtn" onclick="back()" disabled>← Back</button><button class="next" id="nextBtn" onclick="next()" disabled>Next →</button></div>
+  <div class="wrap" id="top">
+    <header class="hero">
+      <div>
+        <div class="pill entry" style="--i:0"><i></i>Food &amp; lifestyle awareness · Free · Private</div>
+        <h1 class="entry" style="--i:1">Your food.<br>Your lifestyle.<br><em>Your future.</em></h1>
+        <p class="lead entry" style="--i:2">Everyday habits add up. Take a short, non-diagnostic check-in on how you eat, drink, move and sleep — and get a personalised, easy-to-read report with practical next steps.</p>
+        <div class="cta-row entry" style="--i:3">
+          <button class="btn btn-primary" data-start>Start assessment <span class="dot" data-ic="arrow"></span></button>
+          <a class="btn btn-ghost" href="#how">See how it works</a>
+        </div>
+        <div class="trust entry" style="--i:4">
+          <span><i class="ico" data-ic="clock"></i>About 3 minutes</span>
+          <span><i class="ico" data-ic="user"></i>No account needed</span>
+          <span><i class="ico" data-ic="lock"></i>Stays in your browser</span>
+        </div>
+      </div>
+
+      <div class="art entry" style="--i:2" aria-hidden="true">
+        <svg class="plate" viewBox="0 0 560 560"><circle cx="280" cy="280" r="268" fill="none" stroke="#0E3B2C" stroke-opacity=".12" stroke-dasharray="2 10" stroke-linecap="round" stroke-width="2"/></svg>
+        <svg class="still" viewBox="0 0 560 560">
+          <circle cx="280" cy="280" r="236" fill="#E2F0B6"/>
+          <circle cx="280" cy="280" r="196" fill="#FFFEF9" stroke="#E2DDCB" stroke-width="2"/>
+          <circle cx="280" cy="280" r="150" fill="#FBF8EE" stroke="#EFE9D6" stroke-width="2"/>
+          <!-- avocado -->
+          <g transform="rotate(-24 220 250)"><ellipse cx="220" cy="250" rx="62" ry="84" fill="#2F6B3A"/><ellipse cx="220" cy="250" rx="52" ry="74" fill="#9CCB62"/><ellipse cx="220" cy="250" rx="40" ry="60" fill="#C6E486" opacity=".7"/><circle cx="220" cy="278" r="25" fill="#8A5A3B"/><circle cx="212" cy="270" r="7" fill="#B07B55" opacity=".7"/></g>
+          <!-- orange slice -->
+          <g transform="translate(354 226)"><circle r="66" fill="#F28C28"/><circle r="57" fill="#FFD79A"/><g stroke="#F5A94B" stroke-width="3.5" stroke-linecap="round"><path d="M-54 0H54M0-54V54M-38-38L38 38M38-38L-38 38"/></g><circle r="9" fill="#FFE9C2"/></g>
+          <!-- berries -->
+          <g><circle cx="300" cy="352" r="19" fill="#33508A"/><circle cx="296" cy="347" r="5" fill="#6D86BD" opacity=".7"/><circle cx="336" cy="366" r="16" fill="#3C5A9C"/><circle cx="332" cy="362" r="4" fill="#7E95C8" opacity=".7"/><circle cx="318" cy="392" r="14" fill="#2B4577"/></g>
+          <!-- leaves -->
+          <g><path d="M208 372c0-30 18-50 52-54 0 34-18 54-48 54z" fill="#3E8B5F"/><path d="M212 372l36-42" stroke="#CFEA7D" stroke-width="3" stroke-linecap="round"/><path d="M170 342c-4-24 8-40 34-46 4 26-8 42-30 46z" fill="#5BA870"/></g>
+          <!-- tomato -->
+          <g><circle cx="404" cy="330" r="30" fill="#E4583E"/><path d="M392 306c6 4 10 4 16 0M404 302v8" stroke="#2F6B3A" stroke-width="4" stroke-linecap="round" fill="none"/><ellipse cx="394" cy="322" rx="7" ry="4" fill="#fff" opacity=".35" transform="rotate(-30 394 322)"/></g>
+          <!-- droplet -->
+          <path d="M280 120s30 34 30 58a30 30 0 0 1-60 0c0-24 30-58 30-58z" fill="#6EC1E4"/><path d="M268 168a14 14 0 0 0 8 14" stroke="#fff" stroke-width="4" stroke-linecap="round" fill="none" opacity=".7"/>
+          <circle cx="96" cy="112" r="10" fill="#EE9F2E"/><circle cx="480" cy="116" r="7" fill="#2F8A5B"/><circle cx="500" cy="420" r="12" fill="#E4583E" opacity=".85"/><circle cx="70" cy="410" r="8" fill="#0E3B2C" opacity=".8"/>
+        </svg>
+        <div class="float f1"><span class="bubble bg-mint" data-ic="drop"></span><div><small>Hydration</small><b>On track</b></div></div>
+        <div class="float f2"><span class="bubble bg-sun" data-ic="moon"></span><div><small>Sleep</small><b>7–9 hours</b></div></div>
+        <div class="float f3"><span class="bubble bg-lime" data-ic="pulse"></span><div><small>Movement</small><b>150 min / wk</b></div></div>
+        <span class="sample">Illustrative preview</span>
+      </div>
+    </header>
+
+    <div class="strip reveal" aria-label="At a glance">
+      <div><b>13</b><span>short questions</span></div>
+      <div><b>5</b><span>lifestyle areas analysed</span></div>
+      <div><b>~3 min</b><span>to complete</span></div>
+      <div><b>0</b><span>answers sent to a server</span></div>
     </div>
-    <div id="results" class="hidden"></div>
-  </section>
-  <footer><b style="color:var(--green)">primefood.</b><br>Food and lifestyle awareness, made approachable.<p>This prototype provides general educational information only. It does not diagnose disease, calculate an individual's clinical risk, or replace medical advice. Your answers are processed in this page and are not sent to a server.</p></footer>
-</div>
+
+    <section class="section" id="how">
+      <div class="sec-head reveal"><span class="eyebrow">How it works</span><h2>From a few honest answers to a clear picture.</h2><p>Choose what best describes a typical week. There are no “good” or “bad” people here — only habits you can work on.</p></div>
+      <div class="steps">
+        <article class="step reveal" style="--d:0ms"><span class="num">1</span><div class="bubble bg-lime" data-ic="bowl"></div><h3>Answer 13 quick questions</h3><p>One at a time, covering food, hydration, movement, sleep and daily habits. Tap an answer, move on — it takes about three minutes.</p></article>
+        <article class="step reveal" style="--d:120ms"><span class="num">2</span><div class="bubble bg-peach" data-ic="chart"></div><h3>We analyse your pattern</h3><p>Your answers are scored on your device using a simple, transparent method. Nothing is uploaded and nothing is stored.</p></article>
+        <article class="step reveal" style="--d:240ms"><span class="num">3</span><div class="bubble bg-mint" data-ic="sprout"></div><h3>Get your personalised report</h3><p>See a habit-support score, charts by area, what you’re doing well and practical next steps matched to your answers.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="why">
+      <div class="sec-head reveal"><span class="eyebrow">Why it matters</span><h2>Small habits, compounding over years.</h2><p>Public-health bodies consistently point to the same everyday foundations: how we eat, how much we move, how well we sleep, and what we avoid.</p></div>
+      <div class="matters">
+        <div class="fact reveal" style="--d:0ms"><div class="big">150<small>min</small></div><h3>Weekly moderate activity</h3><p>The minimum WHO suggests for adults, alongside reducing long periods of sitting.</p></div>
+        <div class="fact reveal" style="--d:100ms"><div class="big">7–9<small>hrs</small></div><h3>A typical adult sleep range</h3><p>Needs vary by person and age, but regular, sufficient sleep supports mood, focus and recovery.</p></div>
+        <div class="fact reveal" style="--d:200ms"><div class="big">&lt;10<small>%</small></div><h3>Of energy from free sugars</h3><p>WHO guidance for a healthy diet — sugary drinks are one of the easiest places to cut back.</p></div>
+        <div class="fact reveal" style="--d:300ms"><div class="big">Grp 1</div><h3>Processed meat (IARC)</h3><p>Classified as carcinogenic to humans. The label reflects strength of evidence, not the size of an individual’s risk.</p></div>
+      </div>
+      <p class="note-line reveal"><i class="ico" data-ic="book"></i><span>Sources: WHO healthy diet and physical activity fact sheets, IARC/WHO on processed meat, and CDC sleep guidance. Primefood is an educational reflection tool, not medical advice.</span></p>
+    </section>
+
+    <section class="section" id="trust">
+      <div class="sec-head reveal"><span class="eyebrow">Our approach</span><h2>Built to inform, never to alarm.</h2></div>
+      <div class="principles">
+        <div class="principle reveal" style="--d:0ms"><i class="ico" data-ic="lock"></i><h3>Private by design</h3><p>Your answers are processed entirely in this page. There is no account, no tracking of your responses and no server upload.</p></div>
+        <div class="principle reveal" style="--d:120ms"><i class="ico" data-ic="shield"></i><h3>Educational, not diagnostic</h3><p>Your score reflects habits you report. It is not a clinical risk assessment and cannot predict any disease.</p></div>
+        <div class="principle reveal" style="--d:240ms"><i class="ico" data-ic="book"></i><h3>Grounded in public guidance</h3><p>Suggestions draw on widely used guidance from WHO, IARC and CDC — and always encourage professional advice when needed.</p></div>
+      </div>
+    </section>
+
+    <section class="cta-band reveal">
+      <div><h2>Ready to see your <em>lifestyle snapshot?</em></h2><p>Thirteen questions. Three minutes. A report that’s about you.</p></div>
+      <button class="btn btn-lime" data-start>Start assessment <i class="ico" data-ic="arrow"></i></button>
+    </section>
+
+    <footer>
+      <div class="foot">
+        <div><a class="brand" href="#top"><span class="logo" data-ic="logo"></span><span>primefood<b>.</b></span></a><p style="margin-top:12px;font-weight:600;color:var(--forest)">Your Food. Your Lifestyle. Your Future.</p><p class="disc">Primefood provides general educational information only. It does not diagnose disease, calculate an individual’s clinical risk, or replace medical advice. Your answers are processed in this page and are not sent to a server.</p></div>
+        <div><h4>Explore</h4><ul><li><a href="#how">How it works</a></li><li><a href="#why">Why it matters</a></li><li><a href="#trust">Our approach</a></li></ul></div>
+        <div><h4>Evidence</h4><ul>
+          <li><a href="https://www.who.int/news-room/fact-sheets/detail/healthy-diet" target="_blank" rel="noopener noreferrer">WHO — Healthy diet</a></li>
+          <li><a href="https://www.who.int/news-room/fact-sheets/detail/physical-activity" target="_blank" rel="noopener noreferrer">WHO — Physical activity</a></li>
+          <li><a href="https://www.cdc.gov/sleep/about/index.html" target="_blank" rel="noopener noreferrer">CDC — About sleep</a></li></ul></div>
+      </div>
+      <div class="legal"><span>© 2026 Primefood. An educational project.</span><span>Not a medical device.</span></div>
+    </footer>
+  </div>
+</section>
+
+<!-- ============================ QUIZ ============================ -->
+<section class="view" id="view-quiz" aria-label="Assessment">
+  <div class="wrap qpage">
+    <div class="qtop">
+      <a class="brand" href="#" id="quizBrand" aria-label="Exit assessment"><span class="logo" data-ic="logo"></span><span>primefood<b>.</b></span></a>
+      <span class="private"><i class="ico" data-ic="lock"></i>Private — stays in this browser</span>
+      <button class="exit" id="exitBtn">Exit</button>
+    </div>
+    <div class="qmain">
+      <div class="stepper" id="stepper" role="progressbar" aria-label="Assessment progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+      <div class="qcard">
+        <div class="qmeta"><span class="catpill" id="catPill"></span><span class="qcount" id="qCount" aria-live="polite"></span></div>
+        <div class="qbody" id="qBody">
+          <div class="qhead"><div class="qicon" id="qIcon"></div><h2 class="qtitle" id="qTitle" tabindex="-1"></h2></div>
+          <p class="qhelp" id="qHelp"></p>
+          <div class="opts" id="opts" role="radiogroup" aria-labelledby="qTitle"></div>
+        </div>
+        <div class="qfoot">
+          <button class="back" id="backBtn">← Back</button>
+          <span class="hint">Tip: press 1–4 to answer, → to continue</span>
+          <button class="next" id="nextBtn" disabled>Next <i class="ico" data-ic="arrow"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ LOADING ============================ -->
+<section class="view" id="view-loading" aria-label="Generating your report">
+  <div class="loading" role="status" aria-live="polite"><div>
+    <div class="load-ring">
+      <svg class="spin" viewBox="0 0 150 150"><circle cx="75" cy="75" r="68" fill="none" stroke="#E4E1D2" stroke-width="6"/><circle cx="75" cy="75" r="68" fill="none" stroke="#2F8A5B" stroke-width="6" stroke-linecap="round" stroke-dasharray="120 310"/></svg>
+      <div class="core" data-ic="sprout"></div>
+    </div>
+    <h2>Analysing your answers…</h2>
+    <p style="color:var(--muted);margin-top:8px">Building your personalised snapshot, on this device.</p>
+    <ul class="lsteps" id="lsteps">
+      <li><span class="c" data-ic="check"></span>Scoring your food choices</li>
+      <li><span class="c" data-ic="check"></span>Reviewing hydration and movement</li>
+      <li><span class="c" data-ic="check"></span>Looking at sleep and daily habits</li>
+      <li><span class="c" data-ic="check"></span>Preparing your recommendations</li>
+    </ul>
+  </div></div>
+</section>
+
+<!-- ============================ RESULTS ============================ -->
+<section class="view" id="view-results" aria-label="Your results">
+  <div class="wrap">
+    <div class="rtop">
+      <a class="brand" href="#" id="resBrand" aria-label="Back to home"><span class="logo" data-ic="logo"></span><span>primefood<b>.</b></span></a>
+      <div class="acts">
+        <button class="btn btn-ghost btn-sm" id="copyBtn"><i class="ico" data-ic="copy"></i><span class="txt">Copy summary</span></button>
+        <button class="btn btn-ghost btn-sm" id="printBtn"><i class="ico" data-ic="print"></i><span class="txt">Print / save PDF</span></button>
+        <button class="btn btn-primary btn-sm" id="retakeTop" style="padding:6px 6px 6px 18px">Retake <span class="dot" style="width:32px;height:32px" data-ic="refresh"></span></button>
+      </div>
+    </div>
+    <div id="results"></div>
+    <footer style="margin-top:60px"><div class="legal" style="border:0;margin:0;padding:0"><span>© 2026 Primefood. General educational information only — not a diagnosis or medical advice.</span><span>Answers are processed in this page and never sent to a server.</span></div></footer>
+  </div>
+</section>
+</main>
+<div class="toast" id="toast" role="status"></div>
+
 <script>
+/* =====================================================================
+   PRIMEFOOD — script
+   1. Data (your original questions/options/points, + hydration)
+   2. Analysis (pure functions; your original rules preserved)
+   3. UI: icons, router, quiz, loading, results
+   ===================================================================== */
+
+/* ---------- 1. DATA ---------- */
+/* Each answer is [label, points]. 0 = most supportive, 3 = least.
+   id / short / icon / pos are presentation metadata added for the new UI.
+   The questions marked ORIGINAL are unchanged from the first version. */
 const questions = [
- {cat:"Food choices",q:"How often do you eat packaged or ultra-processed snacks (such as chips, packaged biscuits or instant snack foods)?",help:"Think about a typical week.",a:[["Rarely or never",0],["1–2 days a week",1],["3–5 days a week",2],["Almost every day",3]]},
- {cat:"Food choices",q:"How often do you drink sugar-sweetened beverages (soft drinks, sweetened packaged juices, energy drinks or sweet tea/coffee)?",help:"Include drinks you have with meals and between meals.",a:[["Rarely or never",0],["1–2 days a week",1],["3–5 days a week",2],["Almost every day",3]]},
- {cat:"Food choices",q:"How often do you eat deep-fried or fast foods?",help:"Examples include fries, fried snacks, burgers and fried takeaway meals.",a:[["Rarely or never",0],["About once a week",1],["2–4 times a week",2],["5 or more times a week",3]]},
- {cat:"Food choices",q:"How often do you include vegetables or fruit in your meals?",help:"Think about a variety of vegetables and whole fruit, not only juice.",a:[["With most meals / most days",0],["About once a day",1],["A few times a week",2],["Rarely",3]]},
- {cat:"Food choices",q:"How often do you choose whole grains or high-fibre foods (such as oats, beans, lentils, whole grains, vegetables and fruit)?",help:"Traditional foods such as dal, beans and whole grains can contribute fibre.",a:[["Most days",0],["4–5 days a week",1],["1–3 days a week",2],["Rarely",3]]},
- {cat:"Food choices",q:"How often do you eat processed meats (such as sausages, bacon, salami or hot dogs)?",help:"This question is about processed meat, not all meat or protein foods.",a:[["Rarely or never",0],["Less than once a week",1],["1–3 times a week",2],["4 or more times a week",3]]},
- {cat:"Movement",q:"How much moderate physical activity do you usually get in a week?",help:"Examples: brisk walking, cycling or activities that make you breathe a little harder.",a:[["150 minutes or more",0],["90–149 minutes",1],["30–89 minutes",2],["Less than 30 minutes",3]]},
- {cat:"Movement",q:"How much of your waking day do you spend sitting?",help:"Include desk work, studying, commuting and screen time.",a:[["Less than 4 hours",0],["4–6 hours",1],["6–8 hours",2],["More than 8 hours",3]]},
- {cat:"Sleep",q:"How much sleep do you usually get on most nights?",help:"For most adults, 7–9 hours is a useful general target; needs vary by age and individual.",a:[["7–9 hours",0],["6–7 hours",1],["5–6 hours",2],["Less than 5 hours",3]]},
- {cat:"Sleep",q:"How would you describe your sleep routine?",help:"Consider regularity and whether you feel rested.",a:[["Usually regular and refreshing",0],["Sometimes irregular",1],["Often irregular or restless",2],["Frequently poor or disrupted",3]]},
- {cat:"Daily habits",q:"How often do you smoke or use tobacco?",help:"If you do not use tobacco, choose the first option.",a:[["Never",0],["Former user",0],["Some days",2],["Daily",3]]},
- {cat:"Daily habits",q:"How often do you drink alcohol?",help:"If you do not drink, choose the first option. Alcohol-related risks vary by amount and individual circumstances.",a:[["Never",0],["Less than weekly",1],["1–3 days a week",2],["4 or more days a week",3]]}
+ {id:"snack",short:"Packaged snacks",icon:"bag",cat:"Food choices",q:"How often do you eat packaged or ultra-processed snacks (such as chips, packaged biscuits or instant snack foods)?",help:"Think about a typical week.",a:[["Rarely or never",0],["1–2 days a week",1],["3–5 days a week",2],["Almost every day",3]],pos:"Keeping packaged snacks occasional leaves more room for nourishing foods."},
+ {id:"sweet",short:"Sugary drinks",icon:"cup",cat:"Food choices",q:"How often do you drink sugar-sweetened beverages (soft drinks, sweetened packaged juices, energy drinks or sweet tea/coffee)?",help:"Include drinks you have with meals and between meals.",a:[["Rarely or never",0],["1–2 days a week",1],["3–5 days a week",2],["Almost every day",3]],pos:"Limiting sugary drinks keeps free-sugar intake low — a real win."},
+ {id:"fried",short:"Fried & fast food",icon:"flame",cat:"Food choices",q:"How often do you eat deep-fried or fast foods?",help:"Examples include fries, fried snacks, burgers and fried takeaway meals.",a:[["Rarely or never",0],["About once a week",1],["2–4 times a week",2],["5 or more times a week",3]],pos:"Eating fried and fast food only now and then supports a more balanced diet."},
+ {id:"veg",short:"Fruit & vegetables",icon:"leaf",cat:"Food choices",q:"How often do you include vegetables or fruit in your meals?",help:"Think about a variety of vegetables and whole fruit, not only juice.",a:[["With most meals / most days",0],["About once a day",1],["A few times a week",2],["Rarely",3]],pos:"Regular vegetables and fruit bring fibre, vitamins and minerals."},
+ {id:"fibre",short:"Whole grains & fibre",icon:"wheat",cat:"Food choices",q:"How often do you choose whole grains or high-fibre foods (such as oats, beans, lentils, whole grains, vegetables and fruit)?",help:"Traditional foods such as dal, beans and whole grains can contribute fibre.",a:[["Most days",0],["4–5 days a week",1],["1–3 days a week",2],["Rarely",3]],pos:"Whole grains, pulses and other high-fibre foods support digestive and heart health."},
+ {id:"meat",short:"Processed meat",icon:"meat",cat:"Food choices",q:"How often do you eat processed meats (such as sausages, bacon, salami or hot dogs)?",help:"This question is about processed meat, not all meat or protein foods.",a:[["Rarely or never",0],["Less than once a week",1],["1–3 times a week",2],["4 or more times a week",3]],pos:"Keeping processed meat low reduces a dietary factor linked to colorectal cancer risk."},
+ /* NEW in this version: hydration (answer text uses a ~250 ml glass as the unit) */
+ {id:"water",short:"Water intake",icon:"drop",cat:"Hydration",q:"How much water do you usually drink in a day?",help:"Count water and plain unsweetened drinks; one glass is about 250 ml. Needs vary with weather, activity and body size.",a:[["8 or more glasses (about 2 litres or more)",0],["5–7 glasses (about 1.2–1.8 litres)",1],["3–4 glasses (about 0.7–1 litre)",2],["Fewer than 3 glasses",3]],pos:"Drinking water regularly supports concentration, digestion and steady energy."},
+ {id:"move",short:"Weekly activity",icon:"pulse",cat:"Movement",q:"How much moderate physical activity do you usually get in a week?",help:"Examples: brisk walking, cycling or activities that make you breathe a little harder.",a:[["150 minutes or more",0],["90–149 minutes",1],["30–89 minutes",2],["Less than 30 minutes",3]],pos:"You are at or near the weekly activity level health guidelines suggest."},
+ {id:"sit",short:"Sitting time",icon:"chair",cat:"Movement",q:"How much of your waking day do you spend sitting?",help:"Include desk work, studying, commuting and screen time.",a:[["Less than 4 hours",0],["4–6 hours",1],["6–8 hours",2],["More than 8 hours",3]],pos:"Limiting long sitting periods benefits circulation and metabolic health."},
+ {id:"sleepdur",short:"Sleep duration",icon:"moon",cat:"Sleep",q:"How much sleep do you usually get on most nights?",help:"For most adults, 7–9 hours is a useful general target; needs vary by age and individual.",a:[["7–9 hours",0],["6–7 hours",1],["5–6 hours",2],["Less than 5 hours",3]],pos:"Sleep in or near the typical adult range supports mood, focus and recovery."},
+ {id:"sleepq",short:"Sleep routine",icon:"clock",cat:"Sleep",q:"How would you describe your sleep routine?",help:"Consider regularity and whether you feel rested.",a:[["Usually regular and refreshing",0],["Sometimes irregular",1],["Often irregular or restless",2],["Frequently poor or disrupted",3]],pos:"A fairly regular, refreshing routine is a quiet foundation for everything else."},
+ {id:"tobacco",short:"Tobacco",icon:"smoke",cat:"Daily habits",q:"How often do you smoke or use tobacco?",help:"If you do not use tobacco, choose the first option.",a:[["Never",0],["Former user",0],["Some days",2],["Daily",3]],pos:"Staying free of tobacco is one of the most protective choices for long-term health."},
+ {id:"alcohol",short:"Alcohol",icon:"glass",cat:"Daily habits",q:"How often do you drink alcohol?",help:"If you do not drink, choose the first option. Alcohol-related risks vary by amount and individual circumstances.",a:[["Never",0],["Less than weekly",1],["1–3 days a week",2],["4 or more days a week",3]],pos:"Keeping alcohol low or absent reduces alcohol-related health risks."}
 ];
-let current=0, answers=Array(questions.length).fill(null);
+
+/* Display metadata for the five categories */
+const CATS=[
+ {name:"Food choices",short:"Food",icon:"bowl",bg:"bg-lime",
+  ctx:"WHO healthy-diet guidance centres on more vegetables, fruit, pulses and whole grains, and less free sugar, salt, fried and highly processed food."},
+ {name:"Hydration",short:"Hydration",icon:"drop",bg:"bg-mint",
+  ctx:"Fluid needs vary with climate, activity, age and health. Plain water is a good default; if you have a medical condition affecting fluids, follow your clinician’s advice."},
+ {name:"Movement",short:"Movement",icon:"pulse",bg:"bg-coral",
+  ctx:"WHO suggests adults aim for at least 150 minutes of moderate-intensity activity a week and limit long sedentary periods."},
+ {name:"Sleep",short:"Sleep",icon:"moon",bg:"bg-sun",
+  ctx:"Most adults do well with around 7–9 hours, and a consistent sleep and wake time helps. Persistent sleep problems are worth discussing with a clinician."},
+ {name:"Daily habits",short:"Habits",icon:"spark",bg:"bg-peach",
+  ctx:"Not using tobacco is one of the most impactful choices for long-term health; for alcohol, less is generally better."}
+];
+const catOf=n=>CATS.find(c=>c.name===n);
+
+/* ---------- 2. ANALYSIS ---------- */
+/* Original rules, kept verbatim (text and thresholds). Conditions use the
+   answer's points; for every original question "index>=2" equals "points>=2". */
+const CONCERN_RULES=[
+ {ids:["snack","sweet","fried"],text:"A frequent pattern of sugary drinks, highly processed snacks or fried foods can make it harder to maintain a balanced diet and may contribute to excess energy intake. Diet quality over time matters."},
+ {ids:["veg","fibre"],text:"Low fruit, vegetable and fibre intake can mean missing important nutrients and fibre. A higher-fibre eating pattern is associated with better digestive and cardiometabolic health."},
+ {ids:["meat"],text:"Regular processed-meat consumption is associated with increased colorectal cancer risk. Consider replacing it more often with beans, lentils, eggs, fish or other less-processed options."},
+ {ids:["water"],text:"Drinking very little water can leave you short of fluid, and sugary drinks are a common substitute. Fluid needs vary with climate, activity, age and health, so a regular drinking habit is a useful general guide."},
+ {ids:["move","sit"],text:"Low activity and prolonged sitting can affect cardiovascular and metabolic health. Regular movement, even in short bouts, can help."},
+ {ids:["sleepdur","sleepq"],text:"Insufficient or disrupted sleep can affect mood, concentration and metabolic health. Persistent sleep problems are worth discussing with a clinician."},
+ {ids:["tobacco"],text:"Tobacco use increases the risk of serious diseases. Evidence-based help is available to support quitting."},
+ {ids:["alcohol"],text:"More frequent alcohol use can increase health risks, including some cancers and liver disease. Less alcohol generally means lower alcohol-related risk."}
+];
+const NO_CONCERN="Your answers do not flag a strong pattern in the areas covered by this short quiz. This does not guarantee low health risk; many important factors are not assessed here.";
+const TIP_RULES=[
+ {ids:["snack"],text:"Swap one packaged snack for fruit, unsalted nuts or roasted pulses on some days."},
+ {ids:["sweet"],text:"Make water your default drink and gradually reduce sugary drinks."},
+ {ids:["fried"],text:"Plan a few simple home-prepared meals to reduce reliance on fried takeaway foods."},
+ {ids:["veg","fibre"],text:"Add one extra serving of vegetables, fruit, beans or whole grains each day."},
+ {ids:["meat"],text:"Replace processed meat more often with beans, lentils, eggs, fish or minimally processed alternatives."},
+ {ids:["water"],text:"Keep a water bottle within reach and sip through the day; a glass with each meal is an easy anchor."},
+ {ids:["move"],text:"Start with a 10–15 minute brisk walk and build up gradually toward 150 minutes of moderate activity per week, if appropriate for you."},
+ {ids:["sit"],text:"Break up long sitting periods with brief standing or walking breaks."},
+ {ids:["sleepdur","sleepq"],text:"Try a consistent sleep and wake time and a calming wind-down routine."},
+ {ids:["tobacco"],text:"Consider speaking with a healthcare professional or a tobacco-cessation service about support to quit."},
+ {ids:["alcohol"],text:"Consider reducing alcohol and discussing your pattern with a healthcare professional."}
+];
+const NO_TIP="Keep your helpful routines going and choose one small habit to strengthen this week.";
+
+/* analyse(answers): answers[i] is the index of the chosen option for questions[i]. */
+function analyse(answers){
+  const pts=answers.map((a,i)=>questions[i].a[a][1]);
+  const idx={};questions.forEach((q,i)=>idx[q.id]=i);
+  const S=id=>pts[idx[id]];
+  const points=pts.reduce((s,n)=>s+n,0), max=questions.length*3, percent=Math.round(points/max*100);
+  let level,desc,tone;
+  if(percent<=25){level="Lower habit-concern range";tone="good";desc="Your answers suggest several supportive habits. Keep building consistency and look for small improvements where they feel realistic."}
+  else if(percent<=55){level="Some habits to review";tone="mid";desc="Your answers show a mix of supportive habits and areas that may benefit from attention. Choose one or two realistic changes to begin with."}
+  else{level="More habits to review";tone="low";desc="Several answers point to habits worth prioritising. This is not a diagnosis or a prediction of illness; consider making gradual changes and seeking personalised advice if needed."}
+  const score=100-percent;                      // habit-support score (higher = more supportive)
+  const cats=CATS.map(c=>{
+    const ids=questions.map((q,i)=>q.cat===c.name?i:-1).filter(i=>i>=0);
+    const s=ids.reduce((n,i)=>n+pts[i],0), m=ids.length*3;
+    const sup=100-Math.round(s/m*100);
+    return {...c,ids,points:s,max:m,score:sup,tone:toneOf(sup),flag:s/m>=.5};
+  });
+  const insights=cats.filter(c=>c.flag).map(c=>c.name);   // original "Areas to review"
+  const concerns=CONCERN_RULES.filter(r=>r.ids.some(id=>S(id)>=2)).map(r=>({text:r.text,cat:questions[idx[r.ids[0]]].cat}));
+  const tips=TIP_RULES.filter(r=>r.ids.some(id=>S(id)>=2)).map(r=>({text:r.text,cat:questions[idx[r.ids[0]]].cat,w:Math.max(...r.ids.map(S))}))
+      .map((t,i)=>({...t,i})).sort((a,b)=>b.w-a.w||a.i-b.i);
+  const items=questions.map((q,i)=>({i,q,pts:pts[i],label:q.a[answers[i]][0]}));
+  return {pts,points,max,percent,score,level,desc,tone,cats,insights,
+    concerns:concerns.length?concerns:null,tips:tips.length?tips:null,items,
+    positives:items.filter(x=>x.pts<=1&&!(x.q.id==="tobacco"&&false)),
+    focus:items.filter(x=>x.pts>=2).sort((a,b)=>b.pts-a.pts||a.i-b.i)};
+}
+function toneOf(support){return support>=75?"good":support>=45?"mid":"low"}   // same cut-offs as original 25% / 55% concern bands
+const TONE_LABEL={good:"Supportive",mid:"Mixed",low:"Needs attention"};
+const STATUS={0:"Supportive",1:"Close",2:"Room to grow",3:"Priority"};
+
+/* ---------- 3. UI ---------- */
+const ICON={
+ logo:'<path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14z" fill="#CFEA7D" stroke="none"/><path d="M5 19l8-8" stroke="#0E3B2C" stroke-width="1.6"/>',
+ arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>',
+ check:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+ clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+ user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/>',
+ lock:'<rect x="5" y="11" width="14" height="9" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
+ shield:'<path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/>',
+ book:'<path d="M4 5a2 2 0 0 1 2-2h13v15H6a2 2 0 0 0-2 2z"/><path d="M4 20a2 2 0 0 0 2 2h13v-4"/>',
+ bowl:'<path d="M3 11h18a8 8 0 0 1-8 8h-2a8 8 0 0 1-8-8z"/><path d="M8 11c0-2.5 1.5-4 4-4s4 1.5 4 4"/><path d="M12 7V4"/>',
+ drop:'<path d="M12 3s6 6.2 6 10.5A6 6 0 0 1 6 13.5C6 9.2 12 3 12 3z"/><path d="M9.5 14a2.5 2.5 0 0 0 2 2.4"/>',
+ pulse:'<path d="M20.8 5.6a5 5 0 0 0-7.1 0L12 7.3l-1.7-1.7a5 5 0 0 0-7.1 7.1L12 21l8.8-8.3a5 5 0 0 0 0-7.1z"/><path d="M5 12h3l2-3 3 6 2-3h4" stroke-width="1.5"/>',
+ moon:'<path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/>',
+ spark:'<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 17v4M17 19h4"/>',
+ sprout:'<path d="M12 21v-8"/><path d="M12 13c0-4 2.5-6.500 7-6.500 0 4-2.500 6.500-7 6.500z"/><path d="M12 15c0-3-2-5-6-5 0 3 2 5 6 5z"/>',
+ chart:'<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
+ bag:'<path d="M6 7h12l1 13H5z"/><path d="M9 7a3 3 0 0 1 6 0"/><path d="M9 12h6"/>',
+ cup:'<path d="M6 8h12l-1.2 12H7.2z"/><path d="M12 8V3l3-1"/><path d="M6.5 13h11"/>',
+ flame:'<path d="M12 3c1 3.5 5 5.5 5 10a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 2.500 1.500 2.500C10 9 10.500 5.500 12 3z"/>',
+ leaf:'<path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14z"/><path d="M5 19l9-9"/>',
+ wheat:'<path d="M12 21V8"/><path d="M12 8c-2.500 0-4-1.500-4-4 2.500 0 4 1.500 4 4zM12 8c2.500 0 4-1.500 4-4-2.500 0-4 1.500-4 4zM12 14c-2.500 0-4-1.500-4-4 2.500 0 4 1.500 4 4zM12 14c2.500 0 4-1.500 4-4-2.500 0-4 1.500-4 4z"/>',
+ meat:'<path d="M15 4a5 5 0 0 1 4 7l-5 5-6-6 3-5a5 5 0 0 1 4-1z"/><path d="M8 16l-4 4M6 20l2-2"/>',
+ chair:'<path d="M7 3v9h10"/><path d="M5 12h14M7 12v9M17 12v9"/>',
+ smoke:'<path d="M3 16h14v3H3z"/><path d="M20 16v3"/><path d="M17 9c0-1.500 2-1.500 2-3.500M13 9c0-1.500 2-1.500 2-3.500"/>',
+ glass:'<path d="M7 3h10l-1 7a4 4 0 0 1-8 0z"/><path d="M12 14v7M8 21h8"/>',
+ copy:'<rect x="8" y="8" width="12" height="12" rx="2.500"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/>',
+ print:'<path d="M7 9V3h10v6"/><rect x="4" y="9" width="16" height="9" rx="2"/><path d="M7 14h10v7H7z"/>',
+ refresh:'<path d="M20 11a8 8 0 0 0-14-4L4 9"/><path d="M4 4v5h5"/><path d="M4 13a8 8 0 0 0 14 4l2-2"/><path d="M20 20v-5h-5"/>',
+ info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/>',
+ star:'<path d="M12 3l2.700 5.600 6.100.8-4.500 4.300 1.100 6.100L12 16.800 6.600 19.800l1.100-6.100L3.200 9.400l6.100-.8z"/>',
+ target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>'
+};
+const ic=(n,extra='')=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ${extra}>${ICON[n]||''}</svg>`;
+document.querySelectorAll('[data-ic]').forEach(el=>{el.innerHTML=ic(el.dataset.ic);if(el.tagName==='SPAN'||el.tagName==='DIV'||el.tagName==='I')el.classList.add('ico')});
 const $=id=>document.getElementById(id);
-function render(){
- const q=questions[current]; $("stepLabel").textContent=`Question ${current+1} of ${questions.length}`;$("categoryLabel").textContent=q.cat;
- $("progressBar").style.width=`${current/questions.length*100}%`;$("questionText").textContent=q.q;$("questionHelp").textContent=q.help;
- $("options").innerHTML="";
- q.a.forEach(([label,score],i)=>{const b=document.createElement("button");b.className="option"+(answers[current]===i?" selected":"");b.innerHTML=`<span>${label}</span><span class="tick" aria-hidden="true"></span>`;b.onclick=()=>{answers[current]=i;render()};$("options").appendChild(b)});
- $("backBtn").disabled=current===0;$("nextBtn").disabled=answers[current]===null;$("nextBtn").textContent=current===questions.length-1?"See my results →":"Next →";
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const wait=ms=>new Promise(r=>setTimeout(r,reduced?0:ms));
+
+/* ----- Router ----- */
+let currentView="landing";
+async function show(name,{push=true}={}){
+  if(name===currentView)return;
+  const from=$("view-"+currentView),to=$("view-"+name);
+  from.classList.add("leaving");from.classList.remove("active");
+  await wait(220);
+  from.classList.remove("leaving");
+  to.classList.add("active");currentView=name;
+  window.scrollTo({top:0,behavior:"instant"});
+  if(push&&(name==="quiz"||name==="results"))history.pushState({v:name},"");
 }
-function back(){if(current>0){current--;render()}}
-function next(){if(answers[current]===null)return;if(current<questions.length-1){current++;render()}else showResults()}
-function showResults(){
- const points=answers.reduce((s,a,i)=>s+questions[i].a[a][1],0),max=questions.length*3,percent=Math.round(points/max*100);
- let level,desc;if(percent<=25){level="Lower habit-concern range";desc="Your answers suggest several supportive habits. Keep building consistency and look for small improvements where they feel realistic."}else if(percent<=55){level="Some habits to review";desc="Your answers show a mix of supportive habits and areas that may benefit from attention. Choose one or two realistic changes to begin with."}else{level="More habits to review";desc="Several answers point to habits worth prioritising. This is not a diagnosis or a prediction of illness; consider making gradual changes and seeking personalised advice if needed."}
- const groups={"Food choices":[0,1,2,3,4,5],"Movement":[6,7],"Sleep":[8,9],"Daily habits":[10,11]};
- const insights=[];
- for(const [name,idx] of Object.entries(groups)){const s=idx.reduce((n,i)=>n+questions[i].a[answers[i]][1],0),m=idx.length*3;if(s/m>=.5)insights.push(name)}
- const concerns=[];
- if(answers[0]>=2||answers[1]>=2||answers[2]>=2)concerns.push("A frequent pattern of sugary drinks, highly processed snacks or fried foods can make it harder to maintain a balanced diet and may contribute to excess energy intake. Diet quality over time matters.");
- if(answers[3]>=2||answers[4]>=2)concerns.push("Low fruit, vegetable and fibre intake can mean missing important nutrients and fibre. A higher-fibre eating pattern is associated with better digestive and cardiometabolic health.");
- if(answers[5]>=2)concerns.push("Regular processed-meat consumption is associated with increased colorectal cancer risk. Consider replacing it more often with beans, lentils, eggs, fish or other less-processed options.");
- if(answers[6]>=2||answers[7]>=2)concerns.push("Low activity and prolonged sitting can affect cardiovascular and metabolic health. Regular movement, even in short bouts, can help.");
- if(answers[8]>=2||answers[9]>=2)concerns.push("Insufficient or disrupted sleep can affect mood, concentration and metabolic health. Persistent sleep problems are worth discussing with a clinician.");
- if(answers[10]>=2)concerns.push("Tobacco use increases the risk of serious diseases. Evidence-based help is available to support quitting.");
- if(answers[11]>=2)concerns.push("More frequent alcohol use can increase health risks, including some cancers and liver disease. Less alcohol generally means lower alcohol-related risk.");
- if(!concerns.length)concerns.push("Your answers do not flag a strong pattern in the areas covered by this short quiz. This does not guarantee low health risk; many important factors are not assessed here.");
- const tips=[];if(answers[0]>=2)tips.push("Swap one packaged snack for fruit, unsalted nuts or roasted pulses on some days.");if(answers[1]>=2)tips.push("Make water your default drink and gradually reduce sugary drinks.");if(answers[2]>=2)tips.push("Plan a few simple home-prepared meals to reduce reliance on fried takeaway foods.");if(answers[3]>=2||answers[4]>=2)tips.push("Add one extra serving of vegetables, fruit, beans or whole grains each day.");if(answers[5]>=2)tips.push("Replace processed meat more often with beans, lentils, eggs, fish or minimally processed alternatives.");if(answers[6]>=2)tips.push("Start with a 10–15 minute brisk walk and build up gradually toward 150 minutes of moderate activity per week, if appropriate for you.");if(answers[7]>=2)tips.push("Break up long sitting periods with brief standing or walking breaks.");if(answers[8]>=2||answers[9]>=2)tips.push("Try a consistent sleep and wake time and a calming wind-down routine.");if(answers[10]>=2)tips.push("Consider speaking with a healthcare professional or a tobacco-cessation service about support to quit.");if(answers[11]>=2)tips.push("Consider reducing alcohol and discussing your pattern with a healthcare professional.");if(!tips.length)tips.push("Keep your helpful routines going and choose one small habit to strengthen this week.");
- $("quizBox").classList.add("hidden");$("results").classList.remove("hidden");
- $("results").innerHTML=`<div class="result-head"><div class="eyebrow">Your Primefood snapshot</div><h2 style="font-size:2rem;margin:8px 0">A starting point for healthier choices.</h2><div class="scoreline"><div class="score">${100-percent}<small>/ 100 habit-support score</small></div></div><span class="level">${level}</span><p style="color:#dce8df;margin-bottom:0">${desc}</p></div>
- <div class="result-grid"><div class="result-card"><h3>Areas to review</h3>${insights.length?`<ul>${insights.map(x=>`<li>${x}</li>`).join("")}</ul>`:"<p>No major habit category stood out in this brief check-in."}</div>
- <div class="result-card"><h3>Potential health considerations</h3><ul>${concerns.map(x=>`<li>${x}</li>`).join("")}</ul></div>
- <div class="result-card wide"><h3>Your practical next steps</h3><ul>${tips.map(x=>`<li>${x}</li>`).join("")}</ul></div>
- <div class="result-card wide"><h3>Understand this result</h3><p>This score is a simple educational summary of the answers you selected. It is not a validated clinical risk calculator and cannot estimate whether you will develop diabetes, heart disease, cancer or any other condition. Health is influenced by age, genetics, medical history, environment, access to care and many other factors that this quiz does not measure.</p><p>If you have symptoms, a medical condition, are pregnant, or need advice tailored to you, speak with a qualified healthcare professional.</p><button class="next" onclick="restart()">Retake the quiz ↻</button></div></div>
- <p class="smallprint">General information: WHO healthy-diet guidance, WHO physical-activity guidance, IARC/WHO information on processed meat and cancer, and CDC sleep guidance. This prototype is for education, not diagnosis.</p>`;
- $("progressBar").style.width="100%";$("results").scrollIntoView({behavior:"smooth",block:"start"});
+window.addEventListener("popstate",()=>{if(currentView!=="landing"&&currentView!=="loading"){busy=false;show("landing",{push:false})}});
+
+/* ----- Quiz ----- */
+let current=0,answers=Array(questions.length).fill(null),busy=false;
+const groups=CATS.map(c=>({...c,idx:questions.map((q,i)=>q.cat===c.name?i:-1).filter(i=>i>=0)}));
+function buildStepper(){
+  $("stepper").innerHTML=groups.map(g=>`<div class="seg" style="--n:${g.idx.length}" data-cat="${g.name}"><span class="seg-label">${g.short}</span><div class="seg-bar"><i></i></div></div>`).join("");
 }
-function restart(){current=0;answers=Array(questions.length).fill(null);$("results").classList.add("hidden");$("results").innerHTML="";$("quizBox").classList.remove("hidden");render();$("quiz").scrollIntoView({behavior:"smooth"})}
-render();
+function updateStepper(){
+  const q=questions[current];
+  groups.forEach((g,gi)=>{
+    const el=$("stepper").children[gi],first=g.idx[0],n=g.idx.length;
+    const fill=Math.max(0,Math.min(1,(current-first)/n));
+    el.querySelector("i").style.width=(fill*100)+"%";
+    el.classList.toggle("cur",g.name===q.cat);el.classList.toggle("done",current>=first+n);
+  });
+  const pct=Math.round(current/questions.length*100);
+  $("stepper").setAttribute("aria-valuenow",pct);
+}
+function renderQuestion(){
+  const q=questions[current],c=catOf(q.cat);
+  $("catPill").innerHTML=`<i class="ico" style="font-size:1rem">${ic(c.icon)}</i>${q.cat}`;
+  $("qCount").textContent=`Question ${current+1} of ${questions.length}`;
+  $("qIcon").innerHTML=ic(q.icon);$("qTitle").textContent=q.q;$("qHelp").textContent=q.help;
+  $("opts").innerHTML=q.a.map(([label],i)=>`<button class="opt${answers[current]===i?" sel":""}" role="radio" aria-checked="${answers[current]===i}" data-i="${i}" style="--i:${i}"><span class="key">${i+1}</span><span class="lbl">${label}</span><span class="tick">${ic("check")}</span></button>`).join("");
+  $("opts").querySelectorAll(".opt").forEach(b=>b.addEventListener("click",()=>choose(+b.dataset.i)));
+  syncNav();updateStepper();
+}
+function syncNav(){
+  $("backBtn").disabled=current===0;$("nextBtn").disabled=answers[current]===null;
+  $("nextBtn").innerHTML=(current===questions.length-1?"See my results ":"Next ")+ic("arrow",'style="width:1em;height:1em"');
+}
+function choose(i){
+  if(busy)return;
+  const wasNull=answers[current]===null;answers[current]=i;
+  $("opts").querySelectorAll(".opt").forEach(b=>{const on=+b.dataset.i===i;b.classList.toggle("sel",on);b.setAttribute("aria-checked",on)});
+  syncNav();
+  if(wasNull){$("nextBtn").classList.remove("pulse");void $("nextBtn").offsetWidth;$("nextBtn").classList.add("pulse")}
+}
+async function go(delta){
+  if(busy)return;const ni=current+delta;
+  if(ni<0)return;
+  if(delta>0&&answers[current]===null)return;
+  if(ni>=questions.length){return finish()}
+  busy=true;const body=$("qBody");
+  body.classList.add(delta>0?"out-l":"out-r");await wait(200);
+  current=ni;renderQuestion();
+  body.classList.remove("out-l","out-r");body.classList.add(delta>0?"in-r":"in-l");
+  $("qTitle").focus({preventScroll:true});
+  await wait(430);body.classList.remove("in-r","in-l");busy=false;
+}
+function startQuiz(){
+  current=0;answers=Array(questions.length).fill(null);busy=false;
+  buildStepper();renderQuestion();show("quiz");
+}
+function exitQuiz(){
+  if(answers.some(a=>a!==null)&&!confirm("Leave the assessment? Your answers so far will be cleared."))return;
+  show("landing");
+}
+document.querySelectorAll("[data-start]").forEach(b=>b.addEventListener("click",startQuiz));
+$("backBtn").addEventListener("click",()=>go(-1));
+$("nextBtn").addEventListener("click",()=>go(1));
+$("exitBtn").addEventListener("click",exitQuiz);
+$("quizBrand").addEventListener("click",e=>{e.preventDefault();exitQuiz()});
+$("resBrand").addEventListener("click",e=>{e.preventDefault();show("landing")});
+document.addEventListener("keydown",e=>{
+  if(currentView!=="quiz"||e.metaKey||e.ctrlKey||e.altKey)return;
+  if(/^[1-4]$/.test(e.key)){choose(+e.key-1)}
+  else if(e.key==="ArrowRight"){go(1)}
+  else if(e.key==="ArrowLeft"){go(-1)}
+});
+
+/* ----- Loading → results ----- */
+async function finish(){
+  const result=analyse(answers);                 // compute first, from the real answers
+  window.__primefoodResult=result;
+  busy=true;
+  await show("loading",{push:false});
+  const lis=[...$("lsteps").children];lis.forEach(l=>l.classList.remove("on","done"));
+  for(const l of lis){l.classList.add("on");await wait(620);l.classList.remove("on");l.classList.add("done")}
+  await wait(350);
+  renderResults(result);
+  await show("results");
+  busy=false;
+}
+
+/* ----- Results ----- */
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const list=a=>a.length<=1?a.join(""):a.slice(0,-1).join(", ")+" and "+a[a.length-1];
+const lc=s=>s.charAt(0).toLowerCase()+s.slice(1);
+
+function ring(value,size,stroke,{track="ring-bg",label=true}={}){
+  const r=(size-stroke)/2,C=+(2*Math.PI*r).toFixed(2),off=+(C*(1-value/100)).toFixed(2);
+  return `<svg viewBox="0 0 ${size} ${size}" width="${size}" height="${size}" aria-hidden="true"><circle class="${track}" cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke-width="${stroke}"/><circle class="ring-fg" cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke-width="${stroke}" transform="rotate(-90 ${size/2} ${size/2})" style="--c0:${C};--off:${off}"/></svg>`;
+}
+function pips(pts){
+  const on=4-pts;
+  return `<span class="pips" role="img" aria-label="Closeness to supportive pattern: ${on} of 4">${[0,1,2,3].map(k=>`<i class="${k<on?"on":""}" style="--k:${k}"></i>`).join("")}</span>`;
+}
+const toneOfPts=p=>p<=0?"good":p===1?"good":p===2?"mid":"low";
+
+function radarSVG(cats){
+  const N=cats.length,cx=215,cy=190,R=122,P=(i,v)=>{const a=-Math.PI/2+i*2*Math.PI/N;return [cx+Math.cos(a)*R*v/100,cy+Math.sin(a)*R*v/100]};
+  const poly=v=>cats.map((_,i)=>P(i,v).map(n=>n.toFixed(1)).join(",")).join(" ");
+  const rings=[25,50,75,100].map(v=>`<polygon points="${poly(v)}" fill="${v===100?"#FBF8EE":"none"}" stroke="#DCD7C4" stroke-width="1"/>`).join("");
+  const axes=cats.map((_,i)=>{const [x,y]=P(i,100);return `<line x1="${cx}" y1="${cy}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="#E4DFCD"/>`}).join("");
+  const labels=cats.map((c,i)=>{const [x,y]=P(i,128),cs=Math.cos(-Math.PI/2+i*2*Math.PI/N),sn=Math.sin(-Math.PI/2+i*2*Math.PI/N);
+    const anchor=cs>.3?"start":cs<-.3?"end":"middle",dy=sn>.5?14:sn<-.5?-8:4;
+    return `<text x="${x.toFixed(1)}" y="${(y+dy).toFixed(1)}" text-anchor="${anchor}">${c.short}</text><text class="sc" x="${x.toFixed(1)}" y="${(y+dy+14).toFixed(1)}" text-anchor="${anchor}">${c.score}/100</text>`}).join("");
+  const vals=cats.map(c=>c.score);
+  return `<svg viewBox="0 0 430 390" role="img" aria-label="Radar chart of habit-support scores: ${cats.map(c=>c.name+" "+c.score).join(", ")}">${rings}${axes}
+   <polygon data-poly fill="rgba(47,138,91,.22)" stroke="#2F8A5B" stroke-width="2.5" stroke-linejoin="round"/>
+   ${cats.map(()=>`<circle data-dot r="5.5" fill="#fff" stroke="#17533F" stroke-width="2.5"/>`).join("")}${labels}</svg>`;
+}
+function armRadar(el,vals){
+  const N=vals.length,cx=215,cy=190,R=122,poly=el.querySelector("[data-poly]"),dots=[...el.querySelectorAll("[data-dot]")];
+  const set=t=>{const pts=vals.map((v,i)=>{const a=-Math.PI/2+i*2*Math.PI/N,r=R*(v/100)*t;return [cx+Math.cos(a)*r,cy+Math.sin(a)*r]});
+    poly.setAttribute("points",pts.map(p=>p.map(n=>n.toFixed(1)).join(",")).join(" "));
+    dots.forEach((d,i)=>{d.setAttribute("cx",pts[i][0].toFixed(1));d.setAttribute("cy",pts[i][1].toFixed(1))})};
+  el._final=()=>set(1);el._start=()=>tween(900,t=>set(1-Math.pow(1-t,3)),1);set(0);
+}
+function tween(ms,fn){if(reduced){fn(1);return}const t0=performance.now();(function f(n){const t=Math.min(1,(n-t0)/ms);fn(t);if(t<1)requestAnimationFrame(f)})(t0)}
+function armCount(el){
+  const v=+el.dataset.count;el.textContent="0";
+  el._final=()=>{el.textContent=v};el._start=()=>tween(1400,t=>{el.textContent=Math.round(v*(1-Math.pow(1-t,3)))});
+}
+
+function narrative(cat,R){
+  const its=R.items.filter(x=>x.q.cat===cat.name);
+  const good=its.filter(x=>x.pts<=1).map(x=>x.q.short.toLowerCase()),bad=its.filter(x=>x.pts>=2).map(x=>x.q.short.toLowerCase());
+  if(cat.name==="Hydration"){
+    const p=its[0].pts;
+    return ["That is a supportive hydration pattern — keep it up, especially on warm or active days.","That is close to a typical intake — a little more through the day would round it out.","That is on the low side for many adults, especially in warm weather or on active days.","That is quite low. Building a steady drinking habit is a simple, high-value change."][p];
+  }
+  const out=[];
+  if(good.length)out.push(`<b>Going well:</b> ${esc(list(good))}.`);
+  if(bad.length)out.push(`<b>Worth attention:</b> ${esc(list(bad))}.`);
+  if(!bad.length)out.push("No habit in this area stands out as a concern.");
+  if(cat.name==="Food choices")out.unshift(`<b>${its.filter(x=>x.pts<=1).length} of ${its.length}</b> food habits are in a supportive range.`);
+  return out.join(" ");
+}
+function rowsHTML(items){
+  return `<div class="rows">${items.map(x=>`<div class="arow ${"tone-"+toneOfPts(x.pts)}"><span class="ai">${ic(x.q.icon)}</span><div><b>${x.q.short}</b><span class="a">${esc(x.label)}</span></div>${pips(x.pts)}</div>`).join("")}</div>`;
+}
+function deepCard(cat,R,extra=""){
+  const its=R.items.filter(x=>x.q.cat===cat.name);
+  return `<article class="card reveal tone-${cat.tone} ${cat.name==="Food choices"?"wide":""}">
+   <div class="dhead"><span class="ci ${cat.bg}">${ic(cat.icon)}</span><div><h3>${cat.name==="Food choices"?"Food habit analysis":cat.name==="Hydration"?"Hydration pattern":cat.name==="Movement"?"Physical activity analysis":cat.name==="Sleep"?"Sleep pattern analysis":"Daily habits"}</h3><span class="band">${TONE_LABEL[cat.tone]}</span></div>
+   <div class="mini">${ring(cat.score,64,7)}<span class="t" data-count="${cat.score}">${cat.score}</span></div></div>
+   ${extra}<p class="narr">${narrative(cat,R)}</p>${cat.name==="Hydration"?"":rowsHTML(its)}
+   <div class="ctx"><i class="ico" data-ic2="info">${ic("info")}</i><span>${cat.ctx}</span></div></article>`;
+}
+function glassHTML(score,label){
+  const y=Math.round(120-(score/100)*104);   // water surface offset inside the 120-unit glass
+  return `<div class="glass-row"><div class="glass" role="img" aria-label="Water glass filled to ${score} percent of a supportive hydration pattern"><svg viewBox="0 0 120 150"><defs><clipPath id="gclip"><path d="M18 14h84l-9 120a10 10 0 0 1-10 9H37a10 10 0 0 1-10-9z"/></clipPath></defs>
+   <path d="M18 14h84l-9 120a10 10 0 0 1-10 9H37a10 10 0 0 1-10-9z" fill="#F3F8F8" stroke="#BFD6D9" stroke-width="3"/>
+   <g clip-path="url(#gclip)"><g class="water" style="--y:${y}px"><rect x="0" y="22" width="160" height="140" fill="#6EC1E4"/><path class="wave" d="M-20 22c10-8 20-8 30 0s20 8 30 0 20-8 30 0 20 8 30 0 20-8 30 0V34H-20z" fill="#8FD3EE"/></g></g>
+   <path d="M30 30l4 90" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".55"/></svg></div>
+   <div style="flex:1;min-width:180px"><div style="font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#8A968E">Your answer</div><div style="font-weight:800;font-size:1.05rem;letter-spacing:-.02em;margin-top:2px">${esc(label)}</div>
+   <div style="font-size:.84rem;color:var(--muted);margin-top:6px">Most supportive answer: 8 or more glasses (about 2 litres or more).</div></div></div>`;
+}
+function compareCard(R,id){
+  const x=R.items.find(i=>i.q.id===id),best=x.q.a.find(a=>a[1]===0)[0],t=toneOfPts(x.pts);
+  return `<div class="cmpc reveal tone-${t}"><div class="top"><i class="ico">${ic(x.q.icon)}</i>${x.q.short}<span class="st">${STATUS[x.pts]}</span></div>
+   <dl><div><dt>You</dt><dd>${esc(x.label)}</dd></div><div><dt>Most supportive answer</dt><dd style="color:var(--muted);font-weight:600">${esc(best)}</dd></div></dl>${pips(x.pts)}</div>`;
+}
+
+function renderResults(R){
+  const cats=R.cats,best=[...cats].sort((a,b)=>b.score-a.score)[0],worst=[...cats].sort((a,b)=>a.score-b.score)[0];
+  const focusNames=R.focus.slice(0,3).map(x=>x.q.short.toLowerCase());
+  let summary;
+  if(worst.score>=75)summary=`Your answers show supportive habits across all five areas we looked at. <strong>${best.name}</strong> is your strongest area at ${best.score}/100 — keep that consistency going.`;
+  else summary=`Your <strong>${best.name.toLowerCase()}</strong> habits are your strongest area (${best.score}/100), while <strong>${worst.name.toLowerCase()}</strong> shows the biggest opportunity (${worst.score}/100).${focusNames.length?` The clearest opportunities are around ${esc(list(focusNames))}.`:""}`;
+  const tone=R.tone,cols={good:"#CFEA7D",mid:"#FFD98A",low:"#FFB19F"};
+  const guideIds=["move","sleepdur","water","veg","sit","fibre"];
+  const food=cats[0],water=cats[1];
+
+  const html=`
+  <div class="rhero">
+    <div><span class="eyebrow">${ic("sprout",'style="width:16px;height:16px"')} Your Primefood report</span>
+      <h1>Your Lifestyle Snapshot</h1>
+      <p class="summary">${summary}</p><p class="desc">${esc(R.desc)}</p>
+      <span class="level">${ic("target",'style="width:16px;height:16px"')} ${esc(R.level)}</span>
+      <div class="chips"><span class="chip">${questions.length} answers analysed</span><span class="chip">Habit-support score — not a clinical risk score</span></div></div>
+    <div class="bigring" role="img" aria-label="Overall habit-support score ${R.score} out of 100">
+      <div class="reveal" style="opacity:1;transform:none" id="heroRing">${ring(R.score,300,22,{track:"ring-bg-d"})}</div>
+      <div class="center"><span class="num" data-count="${R.score}">${R.score}</span><span class="of">out of 100</span></div></div>
+  </div>
+
+  <section class="rsec">
+    <div class="sec-head reveal"><span class="eyebrow">Overview</span><h2>Your habit profile at a glance</h2><p>Higher is more supportive. Each area’s score comes from the answers you gave in that area.</p></div>
+    <div class="profile">
+      <div class="card reveal"><h3>Habit radar</h3><p class="sub">Five lifestyle areas, scored 0–100</p><div class="radar-wrap" id="radar">${radarSVG(cats)}</div></div>
+      <div class="card reveal"><h3>Category scores</h3><p class="sub">Where your habits are strongest, and where to focus</p>
+        <div class="catbars">${cats.map((c,i)=>`<div class="cb tone-${c.tone}"><span class="ci ${c.bg}">${ic(c.icon)}</span><div class="name">${c.name}<small>${TONE_LABEL[c.tone]}</small></div><div class="val" data-count="${c.score}">${c.score}</div><div class="track"><i style="--w:${c.score}%;--d:${i*110}ms"></i></div></div>`).join("")}</div>
+        <div class="legend"><span><i style="background:var(--fill-good)"></i>75+ Supportive</span><span><i style="background:var(--fill-mid)"></i>45–74 Mixed</span><span><i style="background:var(--fill-low)"></i>Below 45 Needs attention</span></div></div>
+    </div>
+  </section>
+
+  <section class="rsec">
+    <div class="sec-head reveal"><span class="eyebrow">Deep dive</span><h2>What your answers say, area by area</h2></div>
+    <div class="deep">
+      ${deepCard(food,R)}
+      ${deepCard(water,R,glassHTML(water.score,R.items.find(x=>x.q.id==="water").label))}
+      ${deepCard(cats[2],R)}
+      ${deepCard(cats[3],R)}
+      ${deepCard(cats[4],R)}
+    </div>
+  </section>
+
+  <section class="rsec">
+    <div class="sec-head reveal"><span class="eyebrow">Compare</span><h2>You vs. the most supportive pattern</h2><p>How close your answers sit to the most supportive option for six key habits.</p></div>
+    <div class="cmp">${guideIds.map(id=>compareCard(R,id)).join("")}</div>
+  </section>
+
+  <section class="rsec">
+    <div class="sec-head reveal"><span class="eyebrow">Strengths &amp; opportunities</span><h2>What to keep, and what to build</h2></div>
+    <div class="two">
+      <div class="card good-card reveal"><h3>${ic("star",'style="width:22px;height:22px;color:var(--forest2)"')} Positive habits worth maintaining</h3><p class="sub">Answers in or close to the supportive range</p>
+        ${R.positives.length?R.positives.map(x=>`<div class="li"><span class="ai">${ic(x.q.icon)}</span><div><b>${x.q.short}<span class="tag">${x.pts===0?"Strong":"Close"}</span></b><p>${esc(x.q.pos)}</p></div></div>`).join(""):`<p class="empty">No habit landed in the supportive range this time — and that’s a perfectly fine starting point. Pick one small change from your next steps below.</p>`}</div>
+      <div class="card focus-card reveal"><h3>${ic("target",'style="width:22px;height:22px;color:#A8650A"')} Areas that may need improvement</h3><p class="sub">Ranked from your answers, highest priority first</p>
+        ${R.insights.length?`<div class="areas">${R.insights.map(n=>`<span>${n}</span>`).join("")}</div>`:""}
+        ${R.focus.length?R.focus.map(x=>`<div class="li"><span class="ai">${ic(x.q.icon)}</span><div><b>${x.q.short}<span class="tag">${x.pts===3?"Priority":"Room to grow"}</span></b><p>You chose “${esc(x.label)}”.</p></div></div>`).join(""):`<p class="empty">No habit crossed into the “needs attention” range. No major habit category stood out in this brief check-in.</p>`}</div>
+    </div>
+  </section>
+
+  <section class="rsec">
+    <div class="sec-head reveal"><span class="eyebrow">Health considerations</span><h2>Potential health considerations</h2><p>General, evidence-informed context for the patterns you reported — not a diagnosis or prediction.</p></div>
+    <div class="considers">${(R.concerns||[{text:NO_CONCERN,cat:"Overall",ok:true}]).map(c=>`<div class="cons reveal ${c.ok?"ok":""}"><i class="ico">${ic(c.ok?"shield":"info")}</i><div><small>${esc(c.cat)}</small><p>${esc(c.text)}</p></div></div>`).join("")}</div>
+  </section>
+
+  <section class="rsec">
+    <div class="sec-head reveal"><span class="eyebrow">Your plan</span><h2>Your practical next steps</h2><p>Personalised to your answers and ordered by priority. Tap a step to mark it as something you’ll try.</p></div>
+    <div class="plan">${(R.tips||[{text:NO_TIP,cat:"Overall"}]).map((t,i)=>`<button class="todo reveal" style="--d:${i*60}ms" aria-pressed="false"><span class="box">${ic("check")}</span><span><small>${esc(t.cat)}</small><b>${esc(t.text)}</b></span>${i===0&&R.tips?'<span class="start">Start here</span>':""}</button>`).join("")}</div>
+  </section>
+
+  <section class="rsec">
+    <div class="card understand reveal">
+      <h3>Understand this result</h3>
+      <p>This score is a simple educational summary of the answers you selected. It is not a validated clinical risk calculator and cannot estimate whether you will develop diabetes, heart disease, cancer or any other condition. Health is influenced by age, genetics, medical history, environment, access to care and many other factors that this quiz does not measure.</p>
+      <div class="vs"><div><b>A lifestyle habit score is…</b>a snapshot of the habits you reported, useful for reflection and choosing small changes.</div><div><b>A clinical risk assessment is…</b>something a qualified professional does using examinations, tests and your medical history. Primefood is not that.</div></div>
+      <p>If you have symptoms, a medical condition, are pregnant, or need advice tailored to you, speak with a qualified healthcare professional.</p>
+      <details class="how"><summary>How your score is calculated</summary><ol>
+        <li>Each answer carries 0–3 points (0 = most supportive pattern, 3 = least).</li>
+        <li>Points are added across all ${questions.length} questions (maximum ${R.max}). You scored ${R.points} points (${R.percent}% of the maximum).</li>
+        <li>Habit-support score = 100 − ${R.percent} = <b>${R.score}</b>. Higher means more supportive.</li>
+        <li>Category scores use the same method on just that area’s questions. Bands: 75+ supportive, 45–74 mixed, below 45 needs attention.</li>
+        <li>Every question counts equally. “Never” and “Former user” both score 0 on the tobacco question.</li></ol></details>
+      <div class="endrow"><button class="btn btn-lime" id="retakeBtn">Retake the quiz ${ic("refresh",'style="width:1em;height:1em"')}</button><button class="btn btn-ghost" id="homeBtn" style="color:#fff;border-color:rgba(255,255,255,.35)">Back to home</button></div>
+    </div>
+    <p class="sources">General information: <a href="https://www.who.int/news-room/fact-sheets/detail/healthy-diet" target="_blank" rel="noopener noreferrer">WHO healthy-diet guidance</a>, <a href="https://www.who.int/news-room/fact-sheets/detail/physical-activity" target="_blank" rel="noopener noreferrer">WHO physical-activity guidance</a>, IARC/WHO information on processed meat and cancer, and <a href="https://www.cdc.gov/sleep/about/index.html" target="_blank" rel="noopener noreferrer">CDC sleep guidance</a>. Primefood is for education, not diagnosis.</p>
+  </section>`;
+
+  const box=$("results");box.innerHTML=html;
+  // ring colours: hero ring is lime on forest; category rings use tone fills
+  box.querySelectorAll(".ring-bg-d").forEach(c=>c.setAttribute("stroke","rgba(255,255,255,.14)"));
+  const hero=box.querySelector("#heroRing .ring-fg");hero.style.stroke=cols[tone];
+  box.querySelectorAll("[data-count]").forEach(armCount);
+  armRadar($("radar"),cats.map(c=>c.score));
+  box.querySelectorAll(".todo").forEach(b=>b.addEventListener("click",()=>{const d=b.classList.toggle("done");b.setAttribute("aria-pressed",d)}));
+  $("retakeBtn").addEventListener("click",startQuiz);$("homeBtn").addEventListener("click",()=>show("landing"));
+  // hero ring is visible immediately: animate it after the page transition
+  const heroWrap=box.querySelector("#heroRing");heroWrap.classList.remove("in");
+  requestAnimationFrame(()=>setTimeout(()=>{heroWrap.classList.add("in");box.querySelectorAll(".bigring [data-count]").forEach(n=>n._start&&n._start())},350));
+  observe(box);
+}
+
+/* ----- Scroll reveal ----- */
+let io;
+function fire(el){
+  el.classList.add("in");
+  el.querySelectorAll("[data-count],#radar").forEach(n=>n._start&&n._start());
+  if(el.id==="radar"&&el._start)el._start();
+}
+function observe(root){
+  const els=[...root.querySelectorAll(".reveal")].filter(e=>e.id!=="heroRing");
+  if(!("IntersectionObserver" in window)){els.forEach(fire);return}
+  io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){fire(e.target);io.unobserve(e.target)}}),{threshold:.14,rootMargin:"0px 0px -6% 0px"});
+  els.forEach(e=>io.observe(e));
+}
+observe(document);
+window.addEventListener("beforeprint",()=>{document.querySelectorAll(".reveal").forEach(e=>e.classList.add("in"));document.querySelectorAll("[data-count],#radar").forEach(n=>n._final&&n._final())});
+
+/* ----- Actions ----- */
+function toast(msg){const t=$("toast");t.textContent=msg;t.classList.add("show");clearTimeout(toast._t);toast._t=setTimeout(()=>t.classList.remove("show"),2200)}
+$("printBtn").addEventListener("click",()=>window.print());
+$("retakeTop").addEventListener("click",startQuiz);
+$("copyBtn").addEventListener("click",async()=>{
+  const R=window.__primefoodResult;if(!R)return;
+  const txt=`Primefood — my lifestyle snapshot\nHabit-support score: ${R.score}/100 (${R.level})\n`+R.cats.map(c=>`• ${c.name}: ${c.score}/100`).join("\n")+`\n\nNext steps:\n`+(R.tips||[{text:NO_TIP}]).slice(0,3).map(t=>"- "+t.text).join("\n")+`\n\nEducational only — not a diagnosis or clinical risk assessment.`;
+  try{await navigator.clipboard.writeText(txt);toast("Summary copied to clipboard")}
+  catch(e){const ta=document.createElement("textarea");ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");toast("Summary copied to clipboard")}catch(_){toast("Couldn’t copy — select and copy manually")}ta.remove()}
+});
+
+/* Exposed for testing/inspection only; nothing is sent anywhere. */
+window.Primefood={questions,analyse};
 </script>
-</body></html>
+</body>
+</html>
